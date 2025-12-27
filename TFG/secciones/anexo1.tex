@@ -1,0 +1,25 @@
+\chapter{Anexo}
+
+En esta sección se coleccionan algunas definiciones y resultados auxiliares que se utilizan en el trabajo.
+
+\begin{definition}\label{cl} Sea $G$ un grupo, $H$ un subgrupo de $G$ y $g$ es un elemento cualquiera de $G$, entonces:
+
+$gH=$ \{$gh$ : $h$ un elemento de $H$\} es una \textbf{clase lateral izquierda} de $H$ en $G$ y
+
+$Hg=$ \{$hg$ : $h$ un elemento de $H$\} es una \textbf{clase lateral derecha} $H$ en $G$.
+\end{definition}
+
+
+\begin{definition}\label{conjugados}
+    Sean $H_1$ y $H_2$ subgrupos de un grupo $G$, entonces se dice que son subgrupos $\textbf{conjugados}$ si $H_2=\alpha \cdot H_1 \cdot \alpha^{-1}$, para algún elemento $\alpha$ de $G$. Esta es una \textbf{relación de equivalencia}, denominándose la clase de equivalencia del subgrupo $H$ como $\textbf{clase de conjugación}$ de $H$.
+\end{definition}
+
+\begin{definition} \label{normalizador}
+    Si $H$ es un subgrupo del grupo $G$, entonces el \textbf{normalizador} de $H$ en $G$ se define como:
+    \[N(H)=\{g \mid gHg^{-1}=H\}\]
+    Es claro que $N(H)$ es un subgrupo de $G$. Se sigue de esta definición que él contiene a $H$ como subgrupo normal y es el mayor de tales subgrupos de $G$.
+\end{definition}
+
+\begin{lemma}\label{Zorn}
+    \textbf{Lema de Zorn:} Todo conjunto parcialmente ordenado no vacío en el que toda cadena (subconjunto totalmente ordenado) tiene una cota superior, contiene al menos un elemento maximal.
+\end{lemma}

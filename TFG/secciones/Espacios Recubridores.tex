@@ -1,0 +1,533 @@
+\chapter{Espacios Recubridores}
+\label{ch:esp_rec}
+
+
+
+
+Con el objetivo de calcular grupos fundamentales no triviales, en este capítulo veremos la noción de espacio recubridor. Para ello, primero veremos la definición de recubrir regularmente un espacio y de aplicación recubridora.
+
+\section{Aplicación recubridora y espacio recubridor}
+
+\begin{definition}
+Sea $p \colon E \to B$ una aplicación continua y sobreyectiva, y sea $U$ un conjunto abierto de $B$. Se dice que $U$ está \textbf{regularmente cubierto} por $p$ si $p^{-1}(U)$  puede escribirse como una unión disjunta de conjuntos abiertos $V_{\alpha}$ de $E$ tales que, para cada $\alpha\in I$, $p \vert_{V_\alpha} \colon V_{\alpha} \to U$ es un homeomorfismo de $V_{\alpha}$ en $U$. La colección $\{V_{\alpha}\}$ se denomina partición de $p^{-1}(U)$ en \textbf{rebanadas}.    
+\end{definition}
+
+
+\begin{definition}\label{def a.r}
+Sea $p \colon E \to B$ una aplicación continua y sobreyectiva. Si para todo $b \in B $ existe un entorno $U$ de $b$, tal que $U$ está regularmente cubierto por $p$, entonces  se dice que $p$ es una \textbf{aplicación recubridora} y $E$ un \textbf{espacio recubridor} de $B$.
+\end{definition}
+
+\subsection{Ejemplos de aplicaciones recubridoras}
+
+A continuación, veremos dos ejemplos de aplicaciones recubridoras de la esfera $S^1$.
+
+
+
+\begin{example}
+\label{thm:recubridor_S1}
+La aplicación $p \colon \mathbb{R} \to S^1.$ dada por la ecuación 
+\[p(x) = (\cos(2\pi x), \sin(2\pi x))\]
+es una aplicación recubridora.
+\end{example}
+
+\begin{proof}
+Por una parte, $p$ es una aplicación continua e inyectiva por serlo el seno y el coseno. Consideremos los siguientes subconjuntos de $S^1$:
+\[U_1=\{ (\cos(2\pi x), \sin(2\pi x)) \;|\; x \in (-1/4,1/4) \}\]
+\[U_2=\{ (\cos(2\pi x), \sin(2\pi x)) \;|\; x \in (1/4,3/4) \}\]
+\[U_3=\{ (\cos(2\pi x), \sin(2\pi x)) \;|\; x \in (0,1/2) \}\]
+\[U_4=\{ (\cos(2\pi x), \sin(2\pi x)) \;|\; x \in (1/2,1) \}\]
+Estos son conjuntos abiertos que cubren totalmente $S^1$, nos queda ver que cada uno está regularmente recubierto. Consideremos la colección $\{V_{\alpha}\}$ de rebanadas de $\mathbb{R}$ definida como:
+\[V_{n_1}=(n-1/4,n+1/4)\]
+\[V_{n_2}=(n+1/4,n+3/4)\]
+\[V_{n_3}=(n,n+1/2)\]
+\[V_{n_4}=(n+1/2,n+1)\]
+donde los $V_{n_i}$ se corresponden con los $U_i$. Estos abiertos cubren regularmente los correspondientes $U_i$ ya que al menos uno de $\cos(2\pi x)$ ó $\sin(2\pi x)$ es monótona en esos intervalos. Además, las imágenes de los extremos de los $V_{n_i}$ van a los extremos de los $U_i$ y, por tanto, por el Teorema del Valor Intermedio, $p \vert_{V_{n_i}}$ es sobreyectiva, y en consecuencia, homeomorfismo.
+
+Se puede representar $p$ como una aplicación que enrolla la recta real $\mathbb{R}$ alrededor del círculo $S^1$ y, en el proceso, aplica cada intervalo [$n$,$n$+1] sobre $S^1.$
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.23\textwidth]{Images/ej1RecubridorS1.png}
+  \caption{Representación de la aplicación recubridora $p \colon \mathbb{R} \to S^1$.}
+  \label{fig:ej1RecubridorS1}
+\end{figure}
+\end{proof}
+
+Ahora veremos otro ejemplo que muestra que hay más de un espacio recubridor de $S^1.$
+
+\begin{example} \label{ej 3.4}
+La aplicación $p \colon S^1 \to S^1.$ dada por $p(z) = z^2$
+es una aplicación recubridora. Aquí consideramos $S^1$ como el subconjunto del plano complejo $\mathbb{C}$ consistente en aquellos números complejos $z$ con $|z|$ = 1.
+
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.25\textwidth]{Images/ej2RecubridorS1.png}
+  \caption{Representación de la aplicación recubridora $p \colon S^1 \to S^1$.}
+  \label{fig:ej2RecubridorS1}
+\end{figure}
+\end{example}
+
+\begin{proof}
+
+Veamos que $p(z)=z^2$ es una aplicación recubridora. Sea $z \in S^1$, \linebreak entonces $z=e^{ix}$, y $p(z)=e^{2ix}$, donde $x \in [0,2\pi)$.
+Escojamos $U_1= S^1\setminus\{1\}$. La preimagen  $p^{-1}(U_1)=V_{11} \sqcup V_{12}$, con $V_{11}=\{e^{ix} $ $|$ $ x \in (0,\pi) \}$ y \linebreak $V_{12}=\{e^{ix} $ $|$ $ x \in (\pi,2\pi) \}$. De forma similar, tomando $U_2=S^1\setminus\{-1\}$ obtenemos la preimagen $p^{-1}(U_2)=V_{21} \sqcup V_{22}$ con $V_{21}=\{e^{ix} $ $|$ $ x \in ({\pi}/2,{3\pi}/2) \}$ y \linebreak$V_{22}=\{e^{ix} $ $|$ $ x \in (3\pi/2,5\pi/2) \}$. De esta forma hemos conseguido encontrar, para cada $b \in S^1$, un abierto $U_1$ o $U_2$, y las respectivas rebanadas de la preimagen.
+
+Por último, $p \vert_{V_\alpha}$ es un homeomorfismo ya que $p^{-1} \vert_{U_{i}} \colon U_i \to {V_{ij}}$ es continua y además es la inversa de $p \vert_{V_{ij}}$. Por lo tanto, queda probado que $p(z)=z^2$ es una aplicación recubridora.
+\end{proof}
+
+\subsection{Propiedades de aplicaciones recubridoras}
+
+Una vez hemos presentado las nociones de espacio recubridor y aplicación recubridora, veremos algunas propiedades de estas.
+
+\begin{theorem}\label{53.2}
+Sea $p \colon E \to B$ una aplicación recubridora y $B_0$ un subespacio de $B$ siendo $E_0 = p^{-1}(B_0)$. Entonces la aplicación $p_0 \colon E_0 \to B_0$, obtenida al restringir $p$, es una aplicación recubridora.
+\end{theorem}
+
+\begin{proof}
+Puesto que $p$ es una aplicación recubridora para cada $b \in B_0$ existe un $U \subset B$ tal que $U$ esta regularmente recubierto por $p$. Para la restricción $p_0 \colon E_0 \to B_0$ se puede utilizar $U_0=B_0 \cap U$, que es abierto de $B_0$ en la topología de subespacio y además su preimagen es $p^{-1}(U_0)=p^{-1}(B_0 \cap U)=E_0 \cap p^{-1}(U)$, donde  $p^{-1}(U)$ puede escribirse como la colección de rebanadas originales $\{V_{\alpha }\}$ de $p$. Por lo tanto, $p^{-1}(B_0 \cap U)$ queda regularmente recubierto por la colección de intersecciones $\{E_0 \cap V_{\alpha }\}$ ya que las restricciones de los homeomorfismos a estas rebanadas siguen siendo homeomorfismos sobre $U_0$, por lo que la restricción $p_0$ es una aplicación recubridora.
+\end{proof}
+
+
+\begin{theorem} \label{teorema 3.6} Si $p \colon E \to B$ y $p' \colon E' \to B'$ son aplicaciones recubridoras entonces
+\[p \times p' \colon E \times E' \to B \times B'\]
+es una aplicación recubridora.
+\end{theorem}
+
+
+
+\begin{proof}
+Puesto que $p$ y $p'$ son aplicaciones recubridoras, para cada punto $(e,e') \in E \times E'$ existe un abierto $U \times U'$ de $E \times E'$ que está regularmente recubierto por $p \times p'$. Esto se debe a que $(p \times p')^{-1}(U \times U')$ se puede escribir como la unión del producto de las rebanadas $\{V_{\alpha}\} \times \{V_{\alpha}'\}$ y, puesto que las restricciones \linebreak $p \vert_{V_\alpha} \colon V_{\alpha} \to U$ y $p' \vert_{V_\alpha}' \colon V_{\alpha}' \to U'$ son homeomorfismos, el producto de las restricciones también es un homeomorfismo.
+\end{proof}
+
+Veamos ahora un ejemplo de este último teorema \ref{th 3.16}.
+
+\begin{example} \label{ejemplo 3.7}Consideremos el toro $T = S^1 \times S^1$. La aplicación producto \[p \times p \colon \mathbb{R} \times \mathbb{R} \to S^1 \times S^1\]
+es un recubrimiento del toro por el plano $\mathbb{R}^2$, siendo $p$ la aplicación recubridora del Ejemplo \ref{thm:recubridor_S1}. Del Teorema \ref{teorema 3.6} se extrae directamente esta conclusión.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\textwidth]{Images/ejTeorema533.png}
+  \caption{Representación de la aplicación recubridora $p \times p$.}
+  \label{fig:ejTeorema533}
+\end{figure}
+
+Observamos que el hecho de que el toro (subespacio de $\mathbb{R}^4$) pueda tener esa representación de $Donut$ (3D) se debe a que existe un homeomorfismo entre $S^1 \times S^1$ y el subespacio de $\mathbb{R}^3$ con la topología usual dado por 
+\[D=\{(x,y,z) \in \mathbb{R}^3 | (\sqrt{x^2+y^2}-2)^2+z^2=1\}\] dado por el embebimiento $e \colon S^1 \times S^1 \to \mathbb{R}^3 $ definido como 
+\[((\cos{\alpha},\sin{\alpha}),(\cos{\beta},\sin{\beta})) \to ((2+\cos{\beta})\cos{\alpha},(2+\cos{\beta})\sin{\alpha},\sin{\beta}).\] 
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.47\textwidth]{Images/ej2Teorema533.png}
+  \caption{Representación del toro como el Donut.}
+  \label{fig:ej2Teorema533}
+\end{figure}
+
+\end{example}
+
+A continuación veamos que el número de preimágenes de una aplicación recubridora de un espacio conexo es constante.
+
+
+\begin{proposition}\label{k-hojas}
+    
+Sea $p \colon E \to B$ una aplicación recubridora, con $B$ conexo. Si $p^{-1}(b_0)$ tiene $k$ elementos para algún $b_0 \in B$, entonces $p^{-1}(b)$ tiene $k$ elementos para todo $b \in B$. En tal caso, se dice que $E$ es un $\textbf{recubridor de k hojas}$ de $B$.
+\end{proposition}
+
+
+\begin{proof}
+Sea un punto $b_0\in B$. Como $p$ es aplicación recubridora existe un entorno $U$ de $b_0$ que está regularmente cubierto por $p$. Dado que $|p^{-1}(b_0)|=k$, podemos asumir que $U$ es tal que $p^{-1}(U)=\sqcup_{i=1}^{k} V_i$ y $p \vert_{V_i} = p_i \colon V_i \to U$ es un homeomorfismo para cada $i=1\ldots k$.
+
+Por reducción al absurdo suponemos que existe otro punto $b_1\in B$ tal que $|p^{-1}(b_1)| \neq k$. Vamos a ver que llegamos a una contradicción con el hecho de que $B$ sea conexo.
+Definimos los conjuntos $C$ y $D$ tal que:
+\[C = \{ b\in B \colon |p^{-1}(b)|=k \}\quad \quad\quad D = \{ b\in B  \colon |p^{-1}(b)| \neq k\} \]
+
+Tenemos que $b_0 \in C$, por lo que $C \neq \emptyset$, y $b_1 \in D$, así que $D \neq \emptyset$. Además, $C \cap D = \emptyset$ y $C \cup D = B$, por definición. Veamos que $(C\, | \, D)$ es una separación de $B$ para lo cual sólo queda demostrar que $C$ y $D$ son abiertos y, por tanto, llegaremos a una contradicción.
+
+En primer lugar veremos que $C$ es abierto. Dado un $b \in C$, como $p$ es una aplicación recubridora el punto $b$ tendrá un entorno $U$ regularmente recubierto por $k$ rebanadas, cada una de ellas homeomorfas a $U$. Entonces, para cada $d\in U$, $p^{-1}(d)$ tiene un punto en cada una de las $k$ rebanadas, por lo que $U \subset C$. Como podemos encontrar un entorno $U$ en $C$ de estas características para todo punto $b\in C$, $C$ debe ser abierto. Con un razonamiento análogo se llega a que $D$ también es abierto. Por tanto, hemos encontrado una separación de $B$ llegando a una contradicción.
+\end{proof}
+
+\section{El grupo fundamental del círculo}
+
+Una vez introducidas totalmente las nociones de aplicación recubridora y espacio recubridor, veremos varias herramientas que utilizaremos para calcular otros grupos fundamentales.
+
+\subsection{Caminos y levantamientos}
+
+\begin{definition}
+    Dado un espacio topológico $X$, un \textbf{camino} en $X$ es una aplicación continua $f \colon [0,1] \to X$.
+\end{definition}
+
+
+
+Por otra parte, el estudio  de los espacios recubridores de un espacio $X$ está estrechamente relacionado con el estudio de su grupo fundamental. Por ello, explicaremos ahora el concepto de \textbf{levantamiento de caminos}, que relaciona ambos conceptos, y que utilizaremos posteriormente para el cálculo del grupo fundamental de $S^1$.
+
+\begin{definition}
+Dados dos espacios $E$ y $B$, si $p \colon E \to B$ es una aplicación entre ellos, y $f$ es una aplicación continua de algún espacio $X$ en $B$, entonces, un $\textbf{levantamiento}$ de $f$ es una aplicación $\widetilde{f} \colon X \to E$ tal que $p$ $\circ \widetilde{f} = f$.
+
+\centering
+$
+\xymatrix
+{
+  & E \ar[d]^{p}\\
+  X \ar[r]^{f} \ar[ur]^{\widetilde{f}} &B
+}
+$
+\end{definition}
+
+Tras introducir el término de levantamiento de caminos, veamos alguna propiedad sobre la existencia de estos levantamientos:
+
+\begin{lemma} \label{lema del levantamiento}
+Dada una aplicación recubridora $p \colon E \to B$ con $p(e_0) = b_0$ y un camino $f \colon [0,1] \to B$ comenzando en $b_0$, existe un único levantamiento $\widetilde{f}$ en $E$ que comienza en $e_0$.
+\end{lemma}
+
+
+\begin{proof}
+
+Cubrimos $B$ con abiertos $U$ tales que están regularmente recubiertos por $p$. Por otra parte, cogemos una partición de $[0,1]$, \linebreak digamos $0<s_0<s_1<...<s_n<1$ tal que para cada $i$, $f([s_i,s_{i+1}])$ queda totalmente dentro de un $U$ (como $[0,1]$ es compacto y $f$ continua, entonces $f([0,1])$ es compacto y se puede cubrir por un número finito de abiertos $U$).
+
+Ahora definimos el levantamiento $\widetilde{f}$ tal que $\widetilde{f}(0)=e_0$. Cada $f([s_i,s_{i+1}])$ se encuentra en un abierto $U$ regularmente recubierto por $p$, sea ahora $\{V_\alpha\}$ una partición de $p^{-1}(U)$ en rebanadas. Entonces, la restricción de $p$ a $V_\alpha$ es un homeomorfismo.
+
+
+
+
+
+
+Definimos entonces $\widetilde{f}(s)$ para $s \in [s_i,s_{i+1}]$ como $\widetilde{f}(s)=(p \vert_{V_\alpha})^{-1}(f(s))$. Como $p \vert_{V_\alpha}$ es un homeomorfismo, entonces su inversa es continua y por tanto, como $f$ es continua, $\widetilde{f}$  es continua en $[s_i,s_{i+1}]$ por composición.
+Para probar que $\widetilde{f}$ es continua en todo $[0,1]$ demostraremos el siguiente lema:
+
+\begin{lemma} \label{lema plegamiento}
+    Sean $X$ e $Y$ cerrados (o abiertos) de un espacio topológico $A$ tal que $A=X \cup Y$, y sea $B$ un espacio topológico. Si $f \colon A \to B$ es continua restringida a $X$ e $Y$, entonces $f$ es continua.
+    \end{lemma}
+    \begin{proof}
+        Si $U$ es un cerrado de $B$, entonces $f^{-1}(U)\cap X$ y $f^{-1}(U)\cap Y$ son cerrados ya que cada uno es la preimagen de $f$ restringida a $X$ e $Y$ respectivamente, siendo $f$ continua en ambos conjuntos por hipótesis. Entonces, la unión de ellos, $f^{-1}(U)$ es también un cerrado ya que es una unión finita de cerrados. De forma análoga se prueba para $X$ e $Y$ abiertos.
+    \end{proof}
+
+
+Esto prueba que $\widetilde{f}$ es continua en todo $[0,1]$. Además, \linebreak $(p \circ \widetilde{f})(s) = p( ((p \vert_{V_\alpha})^{-1}(f(s)))= f(s)$. Por tanto, $p \circ \widetilde{f}=f$ en $[0,1]$
+
+
+
+Veamos ahora que $\widetilde{f}$ es único. Supongamos que $\widetilde{g}$ es otro levantamiento de $f$ que empieza en $e_0$. Entonces $ \widetilde{g}(0)=e_0=\widetilde{f}(0)$. Supondremos que $\widetilde{g}(s)=\widetilde{f}(s)$ para todo $s$ tal que $0 \leq s \leq s_i$ y veremos que se puede prolongar esta propiedad al siguiente trozo $[s_i,s_{i+1}]$, con lo cual probaremos de forma inductiva que se puede prolongar a todo $[0,1]$.
+
+Sea $V_i$ el $V_\alpha$ que contiene $\widetilde{g}(s_i)$. Para $s \in [s_i,s_{i+1}]$, $\widetilde{g}(s)$ se define como $(p \vert_{V_i})^{-1}(f(s))$.
+Como $\widetilde{g}$ es un levantamiento de $f$, entonces debe llevar $[s_i,s_{i+1}]$ en $p^{-1}(U)=\bigcup V_{\alpha}$. Además como las rebanadas son abiertas y disjuntas, y el conjunto $\widetilde{g}([s_i,s_{i+1}])$ es conexo, este estará totalmente contenido en una de las rebanadas. Dado que $\widetilde{g}(s_i)=\widetilde{f}(s_i)\in V_i$, se tiene que $\widetilde{g}([s_i,s_{i+1}]) \subset V_i$. Por lo tanto, para un $s\in [s_i,s_{i+1}]$, $\widetilde{g}(s)$ será un punto $y \in V_i$ que además esté en $p^{-1}(f(s))$. Pero sólo hay un punto $y$ que cumpla esa condición, el punto $(p \vert_{V_i})^{-1}(f(s))$, con lo que concluimos que $\widetilde{g}(s)=\widetilde{f}(s)$ para $s\in [s_i,s_{i+1}]$,y, por inducción, $\widetilde{g}(s)=\widetilde{f}(s)$ para $s\in [0,1]$.
+\end{proof}
+
+
+\subsection{Homotopías}
+Una vez probado el anterior lema recordaremos dos definiciones relevantes.
+
+\begin{definition}
+    Si $f$ y $g$ son aplicaciones continuas del espacio $X$ en el espacio $Y$, decimos que $f$ es \textbf{homotópica} a $g$ si existe una aplicación continua \linebreak $F \colon X \times [0,1] \to Y$ tal que 
+
+    \begin{center}
+        $F(x,0)=f(x)$ y $F(x,1)=g(x)$
+    \end{center}
+    para cada $x \in X$. La aplicación $F$ se llama \textbf{homotopía} entre $f$ y $g$. Además, si $f$ es homotópica a $g$, y $g$ es una aplicación constante, decimos que $f$ es \textbf{homotópicamente nula}.
+\end{definition}
+
+\begin{definition}
+    Dos caminos $f$ y $g$, que aplican el intervalo $[0,1]$  en $X$, se dice que son \textbf{homotópicos por caminos} si tienen el mismo punto inicial $x_0$ y el mismo punto final $x_1$, y si existe una aplicación continua $F \colon [0,1] \times [0,1] \to X$ tal que
+
+    \begin{center}
+    $F(s,0)=f(s)$ y $F(s,1)=g(s)$
+
+    $F(0,t)=x_0$ y $F(1,t)=x_1$,
+    \end{center}
+    para cada $s \in [0,1]$ y cada $t \in [0,1]$. La aplicación $F$ se denomina \textbf{homotopía de caminos} entre $f$ y $g$. 
+    
+\end{definition}
+
+
+
+Ahora utilizaremos el resultado del lema \ref{lema del levantamiento} y las nociones que acabamos de ver para probar el siguiente lema:
+
+\begin{lemma} \label{proposicion homotopias}
+Dada una aplicación recubridora $p \colon E \to B$ con $p(e_0) = b_0$ y  una aplicación continua $F \colon [0,1] \times [0,1] \to B$ con $F(0,0) = b_0$, existe un único levantamiento de $F$ a una aplicación continua.
+\[\widetilde{F}\colon [0,1] \times [0,1] \to E\]
+tal que $\widetilde{F}(0,0) = e_0$. Además, si $F$ es una homotopía de caminos, entonces $\widetilde{F}$ también es una homotopía de caminos.
+\end{lemma}
+
+\begin{proof}
+Dada $F$, definimos $\widetilde{F}(0,0) = e_0$, y mediante el lema \ref{lema del levantamiento} extendemos $\widetilde{F}$ a $0 \times [0,1]$ y $[0,1] \times 0$. Ahora extenderemos $\widetilde{F}$ a $[0,1] \times [0,1]$:
+
+Siguiendo el procedimiento de la anterior demostración, elegimos particiones $s_0 < s_1<\cdots <s_m$ y $t_0<t_1<\cdots <t_n$ tal que $F$ aplique cada rectángulo \linebreak $I_i \times J_j =[s_{i-1},s_i]\times[t_{j-1},t_j]$ en un conjunto abierto de $B$ regularmente recubierto por $p$. Definiremos el levantamiento $\widetilde{F}$ paso a paso, comenzando por el rectángulo $I_1 \times J_1$, continuando con los rectángulos $I_i \times J_1$, después con los rectángulos $I_i \times J_2$ y así sucesivamente.
+
+En general, supongamos que $\widetilde{F}$ está defindo en el conjunto $A$ formado por la unión de $0 \times [0,1]$, $[0,1] \times 0$ y todos los rectángulos $I_i \times J_j$ tal que $j<j_0$ y aquellos con $j=j_0$ e $i<i_0$:
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.4\textwidth]{Images/rectangulos.jpg}\caption{Representación de la extensión de $\widetilde{F}$ a $[0,1]\times [0,1]$.}
+
+\end{figure}
+Además, supongamos que $\widetilde{F}$ es un levantamiento continuo de $F|_A$. Desde este punto definiremos $\widetilde{F}$ en $I_{i_0} \times J_{j_0}$ y demostraremos que es continuo, y por inducción habremos definido $\widetilde{F}$ en todo $[0,1] \times [0,1]$ como un levantamiento continuo de $F$.
+
+Procedemos a definir $\widetilde{F}$ en $I_{i_0} \times J_{j_0}$. Escogemos un conjunto abierto $U$ de $B$ regularmente recubierto que contenga a $F(I_{i_0} \times J_{j_0})$. Como $\widetilde{F}$ ya está definida en $C=A \cap(I_{i_0} \times J_{j_0})$ (la unión del lado izquierdo e inferior del rectángulo $I_{i_0} \times J_{j_0}$) el cual es conexo, $\widetilde{F}(C)$ es conexo y deberá estar totalmente contenido dentro de una de las rebanadas $V_\alpha$ de $p^{-1}(U)$, digamos $V_0$.
+
+Como  $\widetilde{F}$ es un levantamiento de $F|_A$, para $x \in C$,
+\[(p\vert_{V_0})(\widetilde{F}(x))=p(\widetilde{F}(x))=F(x)\]
+por lo que $\widetilde{F}=(p\vert_{V_0})^{-1}(F(x))$, pudiendo extender $\widetilde{F}$ definiendo
+\[\widetilde{F}: =(p\vert_{V_0})^{-1}(F(x))\]
+para $x \in I_{i_0} \times J_{j_0}$. La aplicación extendida será continua por el lema \ref{lema plegamiento}. Continuando de esta manera definimos $\widetilde{F}$ en todo $[0,1]\times [0,1]$.
+
+Este levantamiento es único por la manera en la que se ha construido. Suponiendo que existe otro levantamiento $\widetilde{G}$ tal que $\widetilde{G}(s,t)=\widetilde{F}(s,t)$ para la unión de 
+$0 \times [0,1]$, $[0,1] \times 0$ y todos los rectángulos $I_i \times J_j$ tal que $j<j_0$ y aquellos con $j=j_0$ e $i<i_0$, veremos que $\widetilde{G}(s,t)=\widetilde{F}(s,t)$ para $(s,t) \in I_{i_0} \times J_{j_0}$, prolongando esta propiedad al siguiente rectángulo, con lo cual probaremos de forma inductiva que se puede prolongar a todo $[0,1] \times [0,1]$.
+
+Sea $V_0$ el $V_\alpha$ que contiene la imagen del rectángulo $I_{i_0} \times J_{j_0}$ por $\widetilde{G}$. \linebreak Para $(s,t) \in I_{i_0} \times J_{j_0}$, $\widetilde{G}$ se define como $(p\vert_{V_0})^{-1}(F(x))$. Como $\widetilde{G}$ es un levantamiento de $F$, entonces debe llevar $I_{i_0} \times J_{j_0}$ en $p^{-1}(U)=\bigcup V_\alpha$. Además, como las rebanadas son abiertas y disjuntas, y el conjunto $\widetilde{G}(I_{i_0} \times J_{j_0})$ es conexo, este estará totalmente contenido en una de las rebanadas. Dado que $\widetilde{G}(s,t)=\widetilde{F}(s,t)$ para los lados izquierdo e inferior del rectángulo $I_{i_0} \times J_{j_0}$, entonces se tiene que \linebreak $\widetilde{G}(I_{i_0} \times J_{j_0}) \subset V_0$. Por lo tanto, para $(s,t) \in I_{i_0} \times J_{j_0}$, $\widetilde{G}(s,t)$ será un punto $(x,y) \in V_0$ que además esté en $p^{-1}(F(s,t))$. Pero sólo hay un punto $y$ que cumpla esa condición, el punto $(p \vert_{V_0})^{-1}(F(s,t))$, con lo que concluimos que $\widetilde{G}$ tal que $\widetilde{G}(s,t)=\widetilde{F}(s,t)$ para $(s,t) \in I_{i_0} \times J_{j_0}$, y por inducción, para todo $[0,1] \times [0,1]$.
+
+
+Supongamos ahora que $F$ es una homotopía de caminos y probaremos que $\widetilde{F}$ es una homotopía de caminos. 
+
+Por ser $F$ homotopía de caminos, esta lleva $0 \times [0,1]\subset [0,1]^2$ a un solo punto $b_0$ de $B$ y, como $\widetilde{F}$ es un levantamiento de $F$, llevará todo ese lado sobre el conjunto $p^{-1}(b_0)$ que tiene la topología discreta como subespacio de $E$. Dado que $0 \times [0,1]$ es conexo y $\widetilde{F}$ continua, $\widetilde{F}(0 \times [0,1])$ es conexo y, por lo tanto, debe ser igual a un conjunto unipuntual. De igual forma $\widetilde{F}(1 \times [0,1])$ debe ser también un conjunto unipuntual. Concluimos que $\widetilde{F}$ es una homotopía de caminos ya que es continua y fija para $t=0$ y $t=1$ como acabamos de demostrar.
+\end{proof}
+
+Una vez vistos los lemas sobre la existencia de levantamientos de caminos y homotopías, ahora demostraremos alguna propiedad de estos.
+
+\begin{theorem} 
+\label{th 3.16}Sea $p \colon E \to B$ una aplicación recubridora con $p(e_0)=b_0$, y $f$ y $g$ dos caminos en $B$ de $b_0$ a $b_1$ siendo $\widetilde{f}$ y $\widetilde{g}$ sus respectivos levantamientos a caminos en $E$ comenzando en $e_0$. Si $f$ y $g$ son homotópicos por caminos, entonces $\widetilde{f}$ y $\widetilde{g}$ terminan en el mismo punto de $E$ y son homotópicos por caminos.
+\end{theorem} 
+
+\begin{proof}
+Supongo que $F \colon [0,1] \times [0,1] \to B$ es la homotopía de caminos entre $f$ y $g$. Entonces $F(0,0)=b_0$. Ahora sea $\widetilde{F} \colon [0,1] \times [0,1] \to E$ el único levantamiento de $F$ a $E$ tal que $\widetilde{F}(0,0)=b_0$ (existencia y unicidad dada el lema \ref{proposicion homotopias}).
+
+Por ese mismo lema \ref{proposicion homotopias}, $\widetilde{F}$ es una homotopía de caminos puesto que $F$ lo es, y entonces $\widetilde{F}([0,1]\times \{0\} )=\{e_0\}$ y $\widetilde{F}([0,1] \times \{1\})$ es un conjunto unipuntual, digamos $\{e_1\}$. Además, la restricción $\widetilde{F} \vert_{[0,1]  \times \{0\}}$ de $\widetilde{F}$ al lado inferior de $[0,1]  \times [0,1] $ es un camino en $E$ empezando en $e_0$ (dado que $\widetilde{F}$ es continua) que es un levantamiento de $F \vert_{\{0\} \times [0,1]}$. Por la unicidad de levantamientos de caminos del lema \ref{lema del levantamiento} tenemos que $\widetilde{F}(s,0)=\widetilde{f}(s)$ (dado que $\widetilde{f}$ es un levantamiento de $f$). De forma similar, $\widetilde{F} \vert_{[0,1] \times \{1\}}$ es un camino en $E$ que es levantamiento de $F \vert_{[0,1] \times \{1\}}$ y que comienza en $e_0$ ya que $\widetilde{F}([0,1] \times \{0\})=\{e_0\}$; y por la unicidad de levantamientos de caminos $\widetilde{F}(s,1)=\widetilde{g}(s)$.
+
+Así que $\widetilde{f} $ y $ \widetilde{g}$ terminan en $\widetilde{F}([0,1] \times \{1\})=\{e_1\}$, por lo que $\widetilde{F}$ es una homotopía de caminos entre $\widetilde{f} $ y $ \widetilde{g}$.
+\end{proof}
+
+
+\subsection{Correspondencia del levantamiento}
+
+A continuación explicaremos el término de ''correspondencia del levantamiento'' y demostraremos sus propiedades.
+
+\begin{definition}
+\label{def:corresp_lev}
+Sea $p \colon E \to B$ una aplicación recubridora y sean puntos $e_0\in E$, $b_0\in B$ tales que $p(e_0)=b_0$.  Sea $[f]$ un elemento de $\pi_1(B,b_0)$ y sea $\widetilde{f}$ el levantamiento de $f$ a un camino de $E$ que comience en $e_0$. La aplicación
+\[\phi \colon \pi_1(B,b_0) \to p^{-1}(b_0)\]
+tal que $\phi([f])$ es el punto final $\widetilde{f}(1)$ de $\widetilde{f}$ está bien definida por el lema \ref{lema del levantamiento} (existencia de un único levantamiento) y el teorema \ref{th 3.16} (levantamientos de caminos homotópicos terminan en el mismo punto)
+y se denomina \textbf{correspondencia del levantamiento} derivada de la aplicación recubridora $p$. Esta aplicación también depende del $e_0\in E$ elegido.
+\end{definition}
+
+\begin{theorem}
+\label{teorema 3.14}
+Sea $p \colon E \to B$
+ una aplicación recubridora y sean puntos $e_0\in E$ y $b_0\in B$, con $p(e_0)=b_0$. Si $E$ es conexo por caminos, entonces la correspondencia del levantamiento
+\[\phi \colon \pi_1(B,b_0) \to p^{-1}(b_0)\]
+es sobreyectiva. Si $E$ es simplemente conexo, entonces es biyectiva.
+\end{theorem}
+
+\begin{proof}
+    Si $E$ es conexo por caminos, entonces, dado cualquier $e_1 \in p^{-1}(b_0)$, existe un camino $h$ en $E$ de $e_0$ a $e_1$. Definimos ahora $g:=p \circ h$ y entonces \linebreak $g(0)=(p \circ h)(0)=p(e_0)=b_0$ y $g(1)=(p \circ h)(1)=p(e_1)=b_0$ dado que $e_1 \in p^{-1}(b_0)$. De esta forma, $g$ es un lazo en $B$ con base $b_0$, y $\phi([g])=h(1)=e_1$, ya que $h$ es un levantamiento de $g$. Esto demuestra la sobreyectividad.
+
+    Supongamos ahora que $E$ es simplemente conexo. Sean $[f]$ y $[g]$ dos elementos de $\pi_1(B,b_0)$ tales que $\phi([f])=\phi([g])$. Sean $\widetilde{f}$ y $\widetilde{g}$ los levantamientos de $f$ y $g$ a caminos en $E$ comenzando en $e_0$. Entonces, como $f(1)=g(1)$ se tiene que $\widetilde{f(1)}=\widetilde{g(1)}$, ya que por el teorema \ref{th 3.16} $\widetilde{f}$ y $\widetilde{g}$ tienen los mismos puntos inicial y final.
+
+    Si $E$ es simplemente conexo, existe una homotopía de caminos $\widetilde{F}$ en $E$ entre $\widetilde{f}$ y $\widetilde{g}$. Como $\widetilde{F}([0,1] \times \{0\})=\widetilde{f}$ y $\widetilde{F}([0,1] \times \{1\})=\widetilde{g}$ entonces:
+\[(p \circ \widetilde{F})([0,1] \times \{0\})=p\circ \widetilde{f}=f\]
+\[(p \circ \widetilde{F})([0,1] \times \{1\})=p\circ \widetilde{g}=g\]
+ya que $\widetilde{f}$ y $\widetilde{g}$ son levantamientos de $f$ y $g$ respectivamente.
+Como $p$ es continua, entonces $p \circ \widetilde{F}$ es continua y por lo tanto $p \circ \widetilde{F}$ es una homotopía de $f$ con $g$. Por ende, $[f]=[g]$ y $\phi$ es también inyectiva.
+\end{proof}
+
+\subsection{El grupo fundamental del círculo}
+
+Una vez hemos explicado en profundidad los levantamientos, los utilizaremos para establecer un isomorfismo entre el grupo aditivo de los enteros y el grupo fundamental de $S^1$. Pero primero definamos el producto de dos caminos:
+\begin{definition}
+Si $X$ es un espacio topológico, $x_0,x_1,x_2 \in X$ son puntos, y $\sigma_0$ y $\sigma_1$ son caminos en $X$ entre $x_0$ y $x_1$, y entre $x_1$ y $x_2$, respectivamente, se define el \textbf{camino producto} $\sigma_0 * \sigma_1$ como el camino entre $x_0$ y $x_2$ dado por 
+\[
+(\sigma_0 * \sigma_1)(s) =
+\begin{cases}
+    \sigma_0(2s), & \text{si } 0 \leq s \leq \frac{1}{2}, \\
+    \sigma_1(2s-1), & \text{si } \frac{1}{2} \leq s \leq 1.
+\end{cases}
+\]
+\end{definition}
+
+\begin{theorem} \label{th 3.19}El grupo fundamental de $S^1$ es isomorfo al grupo aditivo de los enteros. 
+\end{theorem}
+
+Para probar este teorema haremos uso de dos proposiciones que probaremos primero.
+\begin{lemma}\label{lema VII.56}
+Sea $p$ la aplicación recubridora del ejemplo \ref{thm:recubridor_S1}. Para \linebreak  cada $t_0 \in p^{-1}(1) = \mathbb{Z}$ existe un único levantamiento $\widetilde{\sigma} \colon [0,1] \to \mathbb{R}$ tal que $\sigma=p \circ \widetilde{\sigma}$ y $\widetilde{\sigma}(0)=t_0$.
+\end{lemma}
+
+\begin{proof}
+
+Partimos del recubrimiento abierto $\{U,V\}$ de $S^1$ con \linebreak  $U=S^1\setminus\{1\}=U_2 \cup U_3 \cup U_4$ y $V=S^1\setminus\{-1\}=U_1 \cup U_3 \cup U_4$, siendo $U_1,U_2,U_3,U_4$ los conjuntos abiertos del ejemplo \ref{thm:recubridor_S1} que probamos estaban regularmente recubiertos por $p$. Estos abiertos satisfacen que:
+\[p^{-1}(U)=\bigcup_{n\in\mathbb{Z}} \widetilde{U}_n\; , \quad p^{-1}(V)=\bigcup_{n\in\mathbb{Z}} \widetilde{V}_n)\]
+donde $\widetilde{U}_n := (n,n+1)$ y $\widetilde{V}_n := (n+\frac{1}{2},n+\frac{3}{2})$, siendo $p\vert_{\widetilde{U}_n} \colon \widetilde{U}_n \to U$ y $p \vert_{\widetilde{V}_n} \colon \widetilde{V}_n \to V$ homeomorfismos para cada $n\in \mathbb{Z}$.
+
+Dado un camino $\sigma$ en $S^1$ con $\sigma(0)=z_0$, sin perder la generalidad podemos suponer que $z_0 \in U$ (si $z_0\in V$ se procedería de manera similar). Como $\sigma$ es una aplicación continua y $S^1$ es un espacio métrico compacto, por el lema de Lebesgue podemos encontrar una partición $0=s_0<s_1<...<s_k=1$ de $[0,1]$  tal que se cumple que para $m=0,...,k-2$
+\[\sigma([s_{2m},s_{2m+1}])\subset U\; , \quad \sigma([s_{2m+1},s_{2m+2}])\subset V\]
+    
+A continuación construiremos el levantamiento de manera inductiva. En primer lugar, definiremos el levantamiento $\widetilde{\sigma}$ en $[0,s_1]$. Sea $n_0\in \mathbb{Z}$ tal que $t_0\in \widetilde{U}_{n_0}$. Como ya hemos visto antes, $p\vert_{\widetilde{U}_{n_0}} \colon \widetilde{U}_{n_0} \to U$ es un homeomorfismo y $\sigma([0,s_1]) \subset U$, pudiendo definir $\widetilde{\sigma}\colon [0,s_1] \to \mathbb{R}$ como 
+\[\widetilde{\sigma}(s) = (i \circ (p\vert_{\widetilde{U}_{n_0}})^{-1} \circ \sigma)(s)\]
+siendo $i \colon \widetilde{U}_{n_0} \to \mathbb{R}$ la inclusión. Suponiendo que ya hemos extendido $\widetilde{\sigma}$ a $[0,s_l]$, podemos suponer que $l=2m+1$ sin perder la generalidad. 
+
+Por otra parte, $\sigma([s_l,s_{l+1}])\subset V$ y, tomando $n \in \mathbb{Z}$ tal que $\sigma(s)\in \widetilde{V}_{n}$,podemos extender $\widetilde{\sigma}$ a $[0,s_{l+1}]$ definiendo 
+\[\widetilde{\sigma}(s) = (j \circ (p\vert_{\widetilde{v}_{n_1}})^{-1} \circ \sigma)(s)\;\;\text{ para }\;\; s\in [s_l,s_{l+1}]\]
+con $j \colon \widetilde{V}_{n_1} \to \mathbb{R}$ la inclusión. Así hemos definido $\widetilde{\sigma}$ en todo $[0,1]$, que es el levantamiento de $\sigma$ con $\widetilde{\sigma}(0)=t_0$.
+
+Finalmente probaremos la unicidad. Supongamos que $\widetilde{\sigma}_0$ y $\widetilde{\sigma}_1$ son levantamientos de $\sigma$. Entonces 
+\[e^{2\pi i \widetilde{\sigma}_0(s)}=p\circ \widetilde{\sigma}_0=p \circ \widetilde{\sigma}_1=e^{2\pi i \widetilde{\sigma}_1(s)}\]
+Como $e^{2\pi i (\widetilde{\sigma}_0(s)-\widetilde{\sigma}_1(s))}=1$ $(\widetilde{\sigma}_0(s)-\widetilde{\sigma}_1(s))\in \mathbb{Z}$ para todo $s\in [0,1]$. Además, como $[0,1]$  es conexo, $\widetilde{\sigma}_0-\widetilde{\sigma}_1$ es una aplicación continua  y $\mathbb{Z}$ es un espacio discreto, $\widetilde{\sigma}_0-\widetilde{\sigma}_1$ es una aplicación constante y por lo tanto, $\widetilde{\sigma}_0
+(s)-\widetilde{\sigma}_1(s)=k$ para algún $k\in \mathbb{Z}$. Para concluir, si $\widetilde{\sigma}_0(0)=\widetilde{\sigma}_1(0)=t_0$ entonces $k=t_0-t_0=0$ y $\widetilde{\sigma}_0=\widetilde{\sigma}_1$.
+
+\end{proof}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.65\textwidth]{Images/dem545fig1.png}
+  \caption{Representación del levantamiento $\widetilde{\sigma} \colon [0,1] \to \mathbb{R}$.}
+  \label{fig:dem545fig1}
+\end{figure}
+
+\begin{lemma}\label{lema VII.58}
+Sean $\sigma_0$, $\sigma_1$ dos caminos en $S^1$ que comienzan y terminan en los mismos puntos. Si $H\colon [0,1] \times [0,1] \to S^1$ es una homotopía de caminos en $S^1$ entre $\sigma_0$ y $\sigma_1$, entonces, fijado un levantamiento $\widetilde{\sigma}_0$ de $\sigma_0$, existe una única homotopía de caminos $\widetilde{H} \colon [0,1] \times [0,1] \to  \mathbb{R}$ tal que $\widetilde{H}(s,0)=\widetilde{\sigma}_0(s)$ y $p\circ \widetilde{H}=H$.
+\end{lemma}
+\begin{proof}
+    La demostración es análoga a la prueba del lema \ref{lema VII.56}
+\end{proof}
+
+
+\begin{corollary} \label{prop3.17} Dados dos lazos $\sigma_0$ y $\sigma_1 \colon [0,1] \to S^1$ basados en $e_0$ y dados \linebreak $\widetilde{\sigma_0}, \widetilde{\sigma_1} \colon [0,1] \to \mathbb{R}$ dos levantamientos con $\widetilde{\sigma_0}(0)=\widetilde{\sigma_1}(0)$, entonces $\sigma_0 \dot{\simeq} \sigma_1$ si y solo si $\widetilde{\sigma_0}(1)=\widetilde{\sigma_1}(1)$.
+\end{corollary}
+
+\begin{proof}
+    $(\leftarrow)$ Si $\widetilde{\sigma_0}(1)=\widetilde{\sigma_1}(1)$, como $\mathbb{R}$ es simplemente conexo, entonces $\widetilde{\sigma_0} \dot{\simeq} \widetilde{\sigma_1}$ y, por tanto, $\sigma_0=p\circ \widetilde{\sigma_0} $ $\dot{\simeq} $ $p\circ \widetilde{\sigma_1}=\sigma_1$. Esto se debe a que si $F \colon [0,1] \times [0,1] \to X$ es una homotopía de caminos entre $\widetilde{\sigma_0}$ y $\widetilde{\sigma_1}$, entonces, al componerla con una función continua, en este caso $p$, $p(F(s,0))=p(\widetilde{\sigma_0}(s))=\sigma_0$ \linebreak y $p(F(s,1))=p(\widetilde{\sigma_1}(s))=\sigma_1$, y además $p(F(0,t))=p(x_0)=e_0$ y $p(F(1,t))=p(x_1)=e_0$. Por tanto $p(F)$ es una homotopía de caminos entre $\sigma_0$ y $\sigma_1$.
+
+
+    $(\rightarrow)$ Supongamos ahora que $\sigma_0$ $\dot{\simeq} $ $\sigma_1$ y $H$ una homotopía de caminos entre $\sigma_0$ y $\sigma_1$. Dado el levantamiento $\widetilde{\sigma_0}$ de $\sigma_0$, sabemos por el lema \ref{lema VII.58} que existe una homotopía de caminos $\widetilde{H}$ en $\mathbb{R}$ con $\widetilde{H}(s,0)=\widetilde{\sigma_0}(s)$ para $s\in [0,1]$ y $p\circ \widetilde{H}=H$. Entonces, $\widetilde{H}(s,1)$ es un levantamiento de $\sigma_1$ con $\widetilde{H}(0,1)=\widetilde{\sigma_1}(0)$, y por unicidad de levantamientos, $\widetilde{H}(s,1)=\widetilde{\sigma_1}$. Finalmente, $\widetilde{\sigma_0}(1)=\widetilde{\sigma_1}(1)$.
+\end{proof}
+
+
+
+Una vez probadas, continuaremos con la demostración:
+
+\begin{proof}[Demostración del Teorema \ref{th 3.19}]
+En primer lugar, $(1)$ demostraremos que \linebreak $\pi_1(S^1, x_0) = \{[w_n] \colon n \in \mathbb{Z}\}$, siendo $w_n \colon [0,1]  \to S^1$ tal que $w_n(s)=e^{2\pi ins}$. Posteriormente $(2)$ demostraremos que la aplicación $\Phi \colon \pi_1(S^1,x_0) \to (\mathbb{Z},+)$ con $\Phi([w_n])=n$ es un isomorfismo.
+
+$(1)$ Vamos a ver que cada uno de los lazos en $S^1$ con $\sigma \colon [0,1] \to S^1$ y tal que \linebreak $\sigma(0)=\sigma(1)=x_0$ es homótopo a un $w_n$ con $n \in \mathbb{Z}$.
+
+Dado el camino ''representante de dar $n \in \mathbb{Z}$ vueltas'', $w_n(s)=e^{2\pi ins}$, y dado un \linebreak $t_0 \in p^{-1}(1)=\mathbb{Z}$ se tiene que $\widetilde{w_n}(0)=t_0$ y $\widetilde{w_n}(1)=t_0 + n$ y además \linebreak $\widetilde{w_n}(s)=t_0 +sn$. Dado cualquier otro lazo $\sigma \colon [0,1] \to S^1$, y dado $t_0 \in \mathbb{Z}$ existe un único levantamiento $\widetilde{\sigma}$ tal que $\widetilde{\sigma}(0)=t_0$. Como el final de este levantamiento es $\widetilde{\sigma}(1)=t_0+n$ tenemos, por el corolario \ref{prop3.17}, que $\sigma \dot{\simeq} w_n$ luego $[\sigma]=[w_n]$.
+
+%Esto prueba que $\pi_1(S^1) = \{[w_n] \colon n \in \mathbb{Z}\}$ como conjuntos, falta ver que $\Phi$ es un homomorfismo.
+
+$(2)$ Hay que ver que $\Phi([w_m] * [w_n])=\Phi([w_m]) + \Phi([w_n]) = m + n$, lo que es equivalente a ver que $w_m \ast w_n \dot{\simeq} w_{m+n}$. Tomando los levantamientos de $w_m$, $w_n$ y $w_{m+n}$ y tomando $t_0=0$, 
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.65\textwidth]{Images/dem545fig2.png}
+  \caption{Representación gráfica de que $\Phi([w_m] * [w_n])=\Phi([w_m]) + \Phi([w_n]) = m + n$.}
+  \label{fig:dem545fig2}
+\end{figure}
+
+tenemos que $\widetilde{w_n}(0)=t_0=0 \in \mathbb{Z}$, $\widetilde{w_n}(1)=n=\widetilde{w_m}(0)$ y $\widetilde{w_m}(1)=n+m$. Luego $\widetilde{w_{m+n}}(0)=0$ y $\widetilde{w_{m+n}}(1)=0+m+n=m+n$. 
+Como los levantamientos de los caminos $w_m \ast w_n $ y $ w_{m+n}$  comienzan en el mismo punto y terminan en el mismo punto, aplicando el corolario \ref{prop3.17} llegamos a que $w_m \ast w_n \dot{\simeq} w_{m+n}$. 
+
+La demostración se completa viendo que el homomorfismo que lleva $[w_n]$ \linebreak a $\Phi([w_n])=n\in\mathbb{Z}$ es una biyección entre los conjuntos respectivos, luego es un isomorfismo de grupos. 
+\end{proof}
+
+\begin{example}
+Considero la aplicación recubridora $p \times p \colon \mathbb{R} \times \mathbb{R} \to S^1 \times S^1$ del ejemplo  \ref{ejemplo 3.7} y el camino 
+\[f(t) = (\cos(2\pi t), \sin(2\pi t)) \times (\cos(4\pi t), \sin(4\pi t))\]
+en $S^1 \times S^1$. Veamos el aspecto de $f$ cuando $S^1 \times S^1$ se identifica con la superficie del donut $D$, y encontraremos su levantamiento $\widetilde{f}$ a $\mathbb{R} \times \mathbb{R}$.
+
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{Images/ejercicio545.png}
+  \caption{Representación de $f$ identificando $S^1 \times S^1$ con el donut $D$.}
+  \label{fig:ejercicio545}
+\end{figure}
+
+Por otro lado, se tiene que verificar que $f=(p \times p) \circ \widetilde{f}$. Observamos que \linebreak $\widetilde{f}(t)=(a(t),b(t))=(t,2t)$ es un levantamiento ya que es una aplicación continua de $\mathbb{R}$ en $\mathbb{R} \times \mathbb{R}$, por ser $a(t)=t$ y $b(t)=2t$ dos funciones continuas, y además se verifica $(p\times p) \circ \widetilde{f} = f$:
+\[(p \times p) \circ \widetilde{f}(t) = (\cos(2\pi a(t)), \sin(2\pi a(t)))\times (\cos(2\pi b(t)), \sin(2\pi b(t))) = \]
+\[(\cos(2\pi t), \sin(2\pi t)) \times (\cos(4\pi t), \sin(4\pi t))=f(t)\]
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.4\textwidth]{Images/toroPlano1.jpg}
+  \caption{Representación de $\widetilde{f}(t)=(t,2t)$}
+  \label{fig:toroPlano}
+\end{figure}
+\end{example}
+
+
+\begin{example} \label{ej g}
+Ahora consideramos las aplicaciones $g,h \colon S^1 \to S^1$ dadas por $g(z)=z^n$ y $h(z)= 1/z^n$ (aquí representamos $S^1$ como el conjunto de los números complejos $z$ de valor absoluto 1). Calcularemos los homomorfismos inducidos $g_{*}$ y $h_{*}$ del grupo fundamental $\pi_1(S^1,b_0)$ en sí mismo.
+
+El grupo $\pi_1(S^1,b_0)=\{[w_n] $ $n\in \mathbb{Z}\}$ es cíclico infinito generado por $[w_1]$ \linebreak donde $w_1(s)=(\cos(2\pi s), \sin(2\pi s))$. Por una parte: 
+\[g_{\ast}([w_1(s)])=[(g \circ w_1)(s)]=[(w_1)^n(s)]=[(\cos(2\pi ns), \sin(2\pi ns))]=[w_n(s)].\]
+Por lo tanto, al aplicar $g$ a un número complejo $z$ de módulo $1$ le da $n$ vueltas positivas en el plano complejo. Y la aplicación inducida $g_{\ast}$ convierte un lazo que da una vuelta, en uno que da $n$ vueltas en sentido positivo.
+
+Por otro lado 
+\[h_{\ast}([w_1(s)])=[(h \circ w_1)(s)]=[(w_1)^{-n}(s)]=[(\cos(-2\pi ns), \sin(-2\pi ns))]=[w_{-n}(s)].\]
+Por lo tanto, al aplicar $h$ a un número complejo $z$ le da $n$ vueltas en sentido negativo en el plano complejo. Y la aplicación inducida $g_{\ast}$ convierte un lazo que da una vuelta, en uno que da $n$ vueltas en sentido negativo.
+
+
+Ahora consideramos un $w_m$ cualquiera:
+\[g_{\ast}([w_m(s)])=[(w_m)^n(s)]=[(w_1)^{mn}(s)]=[(\cos(2\pi nms), \sin(2\pi nms))]=[w_{mn}(s)].\]
+y
+\[h_{\ast}([w_m(s)])=[(w_m)^{-n}(s)]=[(w_1)^{-mn}(s)]=[(\cos(-2\pi nms), \sin(-2\pi nms))]=[w_{-mn}(s)].\]
+
+Por lo que ahora convierte un lazo que da $m$ vueltas en uno que da $nm$ vueltas en el mismo sentido ($g$) o en sentido opuesto ($h$).
+
+Finalmente, los homomorfismos $g_*, h_*: \mathbb{Z}\rightarrow \mathbb{Z}$, satisfacen que $g_{\ast}(m)=nm$ y $h_{\ast}(m)=-nm$ para $m \in \mathbb{Z}$. En este caso, la imagen tanto de $g_{\ast}$ como de $h_{\ast}$ sería $n\mathbb{Z}$ y el núcleo el $0$.
+\end{example}
+
+
+
+\subsection{Teorema sobre el homomorfismo inducido por una aplicación recubridora}
+
+Finalmente veremos un teorema sobre aplicaciones recubridoras que utilizaremos en el siguiente capítulo:
+
+\begin{theorem}\label{teorema 54.6} Sea $p \colon E \to B$ una aplicación recubridora con $p(e_0)=b_0$.
+
+$(a)$ El homomorfismo $p_{*} \colon \pi_1(E,e_0) \to \pi_1(B,b_0)$ es un monomorfismo.
+
+$(b)$ Sea $H=p_{*}(\pi_1(E,e_0))$. La correspondencia del levantamiento $\phi$ de la Definición \ref{def:corresp_lev} induce una aplicación inyectiva
+\[\Phi \colon \pi_1(B,b_0)/H \to p^{-1}(b_0)\]
+de la colección de las clases por la derecha (definición \ref{cl}) de $H$ en $p^{-1}(b_0)$, la cual es biyectiva si $E$ es conexo por caminos.
+
+$(c)$ Si $f$ es un lazo en $B$ basado en $b_0$, entonces $[f] \in H$ si y sólo si $f$ es un levantamiento a un lazo en $E$ basado en $e_0$.
+\end{theorem}
+
+\begin{proof}
+    $(a)$ Sólo hace falta probar que el homomorfismo es inyectivo, y para ello veremos que el núcleo del homomorfismo es el neutro.    
+    Supongamos que $\widetilde{h}$ es un lazo en $E$ basado en $e_0$ y que $p_{\ast}([\widetilde{h}])=[p\circ \widetilde{h}]$ es el elemento neutro. Sea $F$ una homotopía de caminos entre $p \circ \widetilde{h}$ y el lazo constante. Si $\widetilde{F}$ es el levantamiento de $F$ a $E$ tal que $\widetilde{F}(0,0)=e_0$, entonces $\widetilde{F}$ es una homotopía de caminos entre $\widetilde{h}$ y el lazo constante en $e_0$ por el lema \ref{lema VII.58}, luego $[\widetilde{h}]$ es el elemento neutro.
+    
+    $(b)$ Para ver si es inyectiva veremos que si hay dos elementos de $\pi_1(B,b_0)/H$ que tengan la misma imagen, entonces es porque pertenecen a la misma clase de equivalencia de clases por la derecha de $H$; 
+    
+    Dados los lazos $f$ y $g$ en $B$, y $\widetilde{f}$ y $\widetilde{g}$ sus respectivos levantamientos a $E$ comenzando en $e_0$, entonces $\phi([f])=\widetilde{f}(1)$ y $\phi([g])=\widetilde{g}(1)$. Demostraremos que $\phi([f])=\phi([g])$ si, y sólo si $[f] \in H*[g]$.
+    
+    $(\leftarrow)$ Supongamos que $[f] \in H*[g]$. Entonces $[f] =[h*g]$ con $h=p \circ \widetilde{h}$ para algún lazo $\widetilde{h}$ en $E$ basado en $e_0$. Como $\widetilde{h}*\widetilde{g}$ está definido y es un levantamiento de $f*g$, dado que $[f]=[h*g]$, los levantamientos $\widetilde{f}$ y $\widetilde{h}*\widetilde{g}$, los cuales comienzan en $e_0$, deberán acabar en el mismo punto de $E$. De esta forma $\phi([f])=\phi([g])$.
+
+    $(\rightarrow)$ Supongamos ahora que $\phi([f])=\phi([g])$, entonces $\widetilde{f}$ y $\widetilde{g}$ acaban en el mismo punto de $E$. El producto de $\widetilde{f}$ y el inverso de $\widetilde{g}$ está definido y es un lazo $\widetilde{h}$ en $E$ basado en $e_0$. De esta forma, $[\widetilde{h}*\widetilde{g}]=[\widetilde{f}]$. Además, si $\widetilde{F}$ es una homotopía de caminos entre los lazos $[\widetilde{h}*\widetilde{g}]$ y $\widetilde{f}$, entonces $p \circ \widetilde{F}$ es una homotopía de caminos en $B$ entre $h*g$ y $f$, donde $h=p\circ \widetilde{h}$. Por lo tanto $[f] \in H*[g]$.
+
+    Por otra parte, si $E$ es conexo por caminos entonces por el teorema \ref{teorema 3.14} $\phi$ es sobreyectiva, de forma que $\Phi$ también es sobreyectiva, y por ende, biyectiva.
+    
+    $(c)$ Por el resultado anterior de que $\phi([f])=\phi([g])$ si y sólo si $[f]\in H*[g]$, si $g$ es el lazo constante, vemos que $\phi([f])=e_0$ si y sólo si $[f] \in H$. Pero $\phi([f])=e_0$ cuando el levantamiento de $f$ comienza y termina en $e_0$.
+\end{proof}
+
+\begin{example}\label{resumen cap3}
+Podemos aplicar este teorema al ejemplo \ref{ej 3.4} y al ejemplo \ref{ej g} en los cuales vimos las aplicaciones $p$ y $g$ que llevaban un número complejo $z$ de módulo unidad en $z^2$ y $z^n$, respectivamente. Escogeremos la más general $g(z)=z^n$ e identificaremos quién es $E$, $B$, $p$,  $H$, y $\Phi$.
+
+En primer lugar, tendremos $g\colon S^1 \to S^1$ definida por $g(z)=z^n$ como aplicación recubridora $p$. Entonces, tendremos que tanto $E$ como $B$ son $S^1$ y tomamos \linebreak $b_0:=1\in S^1=B$ y $e_0:=1\in g^{-1}(1)\in S^1=E$. La aplicación $g_{\ast}$ actúa de la siguiente forma
+\[g_{\ast}:\pi(E, e_0)=\pi(S^1, 1)\simeq \mathbb{Z}\longrightarrow \pi(B, b_0)=\pi(S^1, 1)\simeq \mathbb{Z},\quad m\mapsto nm\]
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{Images/ej3.27.1.PNG}
+  \caption{Representación de $g\colon S^1 \to S^1$.}
+\end{figure}
+
+como se vio en el Ejemplo \ref{ej g}, por lo que 
+$H:=g_{*}(\pi_1(E, e_0))=n\mathbb{Z}$.
+Por el Teorema \ref{teorema 54.6} (b), como $E=S^1$ es conexo por caminos, existe una aplicación biyectiva 
+\[\Phi:\pi_1(B,b_0)/H=\mathbb{Z}/n\mathbb{Z}\simeq \mathbb{Z}_n\longrightarrow g^{-1}(1)=\{\xi^0=1, \xi_1=\xi, \xi^2, \xi^3, \ldots \xi^{n-1}\}\] 
+donde $\xi$ denota una raíz primitiva $n$-ésima de la unidad, que tomaremos $\xi=e^{2\pi i/n}$. Si tomamos una clase $[w_m]\in \pi_1(B,b_0)=\pi_1(S^1, 1)$, la correspondencia del levantamiento (Definición \ref{def:corresp_lev}) establece que la imagen $\Phi([w_m])$ es igual al punto final del único levantamiento $\widetilde{w_m}$ del camino $w_m(s)=e^{2\pi ism}$ que comienza en\linebreak  $e_0=1\in S^1=E$. Usando la composición $g(\widetilde{w_m}(s))=w_m(s)$ obtendríamos que $\widetilde{w_m}(s)=e^{2\pi is(m/n)}$. Observamos que $\widetilde{w_m}(0)=1=e_0$ y que \linebreak $\widetilde{w_m}(1)=e^{2\pi i(m/n)}=(e^{2\pi i/n})^m=\xi^m$. Por tanto, $\Phi([w_m])=\Phi(m)=\xi^m$, lo cual nos proporciona la biyección del teorema. 
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\textwidth]{Images/ej3.27.2.2.PNG}
+  \caption{Representación de $\Phi:\pi_1(B,b_0)/H=\mathbb{Z}/n\mathbb{Z}\simeq \mathbb{Z}_n$.}
+\end{figure}
+\end{example}

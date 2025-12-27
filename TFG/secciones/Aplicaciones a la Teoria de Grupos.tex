@@ -1,0 +1,399 @@
+\chapter{Aplicaciones a la Teoria de Grupos}
+\label{ch:AplTeoGrupos}
+
+En el anterior capítulo pudimos clasificar los espacios recubridores de un espacio topológico resolviendo un problema de álgebra: el estudio de los subgrupos de su grupo fundamental. Ahora haremos un estudio en el sentido contrario, aplicando la teoría de los espacios recubridores al estudio de unas estructuras algebraicas: los grafos. En todo este capítulo se llamará ''grafo'' a un ''grafo  finito''.
+
+\section{Espacios recubridores de un grafo}
+
+Comenzaremos definiendo un grafo como espacio topológico y luego procederemos a estudiar algunas propiedades de los grafos.
+En este capítulo una \textbf{arista} $A$ es un espacio topológico homeomorfo al intervalo cerrado unidad $[0,1]$; los \textbf{vértices} de $A$ son los puntos $p$ y $q$ de $A$ tales que $A-\{p\}$ y $A-\{q\}$ son conexos. 
+
+\begin{definition}
+    Un \textbf{grafo } (finito) $X$ es un espacio topológico cociente de una unión finita de aristas $A_\alpha$, $\alpha \in J$, con una identificación de vértices tal que dos aristas distintas tienen como máximo un punto en común, y tal que el cociente es conexo. A
+demás, el conjunto de todos los vértices de $X$ se denota por $X^0$.\end{definition}   
+
+\begin{definition}
+    Un \textbf{subgrafo} $Y$ de un grafo $X$ es un subespacio topológico del grafo $X$ tal que $Y$ es un grafo y su colección de aristas $A_\alpha$ está contenida en la de $X$.
+\end{definition}
+
+
+
+\subsection{Propiedades de los grafos}
+
+Veamos ahora algunas propiedades de los grafos.
+
+\begin{lemma}\label{t2}
+    Todo grafo  $X$ es $T_2$.
+\end{lemma}
+\begin{proof}
+    Sea $X$ un grafo con conjunto de aristas $\{A_{\alpha}, \alpha\in J\}$. Dados dos puntos $x,y\in X$, veamos que podemos encontrar dos abiertos $U_x$ y $U_y$ de $X$ tal que $x\in U_x, y\in U_y$ y $U_x \cap U_y = \emptyset$. Si $x \in A_\alpha$ y $y \in A_\beta$ con $\alpha \neq \beta$ entonces se pueden escoger $U_x$ como $A_\alpha$ sin sus vértices y $U_y$ como $A_\beta$ sin sus vértices (homeomorfos al intervalo abierto $(0,1)$).
+    
+    Por otra parte, consideramos el caso de que $x,y\in A_\alpha$. Sean $a,b$ son los puntos correspondientes a $x,y$ al aplicarlos por un homeomorfismo al intervalor unidad, y supongamos $a<b$ (en caso de que $b<a$ se hace de manera opuesta). Entonces $U_x$ estará formado por la unión de los abiertos homeomorfos a $[0,\frac{b-a}{2})$ de todas las aristas que intersequen con el extremo inicial de $A_\alpha$. $U_y$ será la unión de los abiertos homeomorfos a $(\frac{b-a}{2},1]$ de todas las aristas que intersequen con el extremo final de $A_\alpha$.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.45\textwidth]{Images/t2.png}
+  \caption{Representación del caso en que $x,y\in A_\alpha$}
+\end{figure}
+    
+\end{proof}
+
+\begin{lemma}
+    Todo grafo  $X$ es compacto.
+\end{lemma}
+\begin{proof}
+    Puesto que $X$ es un cociente de una unión finita de compactos homeomorfos a $([0,1],\tau_u)$ compacto, es por tanto, un cociente de un compacto y, por ende, $X$ es compacto.
+\end{proof}
+
+\begin{lemma}
+    Si $A_\alpha$ es una arista de un grafo  $X$, entonces $A_\alpha$ es cerrada en $X$.
+\end{lemma}
+\begin{proof}
+    Puesto que $X$ es $T_2$ por el lema \ref{t2} y cada arista $A_\alpha$ es compacta por ser homeomorfa al intervalo unidad, entonces cada arista $A_\alpha$ es cerrada en $X$.
+\end{proof}
+
+
+
+\begin{lemma}El subconjunto $X^0$ de vértices es un subespacio discreto cerrado de $X$.
+\end{lemma}
+\begin{proof}
+Esto se debe a que cada punto en $X$ es cerrado (por ser ($[0,1]$,$\tau_u$) $T_1$), y $X^0$ es una unión finita de cerrados, luego cerrado.
+\end{proof}
+
+A continuación veremos como algunos espacios topológicos pueden expresarse como grafos.
+
+\begin{example}\label{5.3}
+    Sea $X$ el espacio formado por la unión de diferentes círculos $S_i$, $i=1,2,3$ con un punto en común ''$x_1$'' (Ver figura \ref{grafoCirculos}), entonces $X$ se puede expresar como un grafo . Para ello representamos cada círculo $S_i$ como un conjunto de 3 aristas con uno de los vértices siendo $x_1$. Para $S_1$ tendremos las aristas $A_1,A_2$, y $A_3$; para $S_2$ las aristas $A_4,A_5$, y $A_6$; y para $S_3$: $A_7,A_8$, y $A_9$, luego $J=\{1,\ldots, 9\}$ y $X^0=\{x_1,\ldots,x_7\}$.  
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\textwidth]{Images/grafoCirculos.png}
+  \caption{Representación como un grafo  de la unión de 3 círculos con un punto en común.}
+  \label{grafoCirculos}
+\end{figure}
+
+    De esta forma hemos representado tal unión de círculos como un grafo. Sabemos que esta unión es homeomorfa al círculo ya que ese grafo formado por tres aristas es homeomorfo al intervalo unidad identificando el $'0'$ con el $'1'$. Teniendo eso en cuenta, finalizamos el razonamiento aplicando el homeomorfismo  \linebreak $h(t)=(\cos(2\pi t),\sin(2\pi t))$ entre $[0,1]/0\sim 1$ y $S^1$. Para construir el grafo de la figura únicamente queda utilizar la operación de pegado por $x_1$.
+
+\end{example}
+
+
+
+
+\begin{lemma}\label{5.5}
+    Si $C$ es un subespacio compacto de un grafo  $X$, entonces existe un subgrafo $Y$ de $X$ que contiene a $C$. $Y$ se puede elegir conexo si $C$ es conexo.
+\end{lemma}
+
+\begin{proof}
+     Vamos a construir el subgrafo $Y$. Para cada vértice $x$ de $X$, tal que $x \in C$, elegimos una arista de $X$ que contenga a $x$ por vértice. A este conjunto añadimos todas las aristas $A_\alpha$ cuyos interiores contienen algún punto de $C$. Así construimos un subgrafo que contiene a $C$. En el caso de que $C$ sea conexo, $Y$ estará formado por aristas que intersecan con $C$, siendo así $Y$ conexo.
+\end{proof}
+
+\begin{lemma}\label{conexcam}
+    Todo grafo  $X$ es localmente conexo por caminos.
+\end{lemma}
+
+\begin{proof}
+    Si $x$ es un vértice y $U$ un entorno de $x$, entonces para cada arista $A_\alpha$ que tiene como extremo a $x$ podemos elegir un entorno $U_\alpha$ de $x$ en $A_\alpha$ tal que $U_\alpha$ es homeomorfo al intervalo $[0,1)$. Entonces $U'=\bigcup U_\alpha$ es un entorno de $x$ en $X$ tal que $U'\subset U$, y que es la unión de espacios conexos por caminos el punto $x$ en común. Por otra parte, si $x$ es un punto interior a una arista $A_\alpha$ y $U$ un entorno de $x$, entonces podemos escoger un entorno $U'$ tal que $U' \subset U$, que sea homeomorfo a un intervalo abierto $(a,b)$ de la recta real, que es conexo por caminos.
+
+\end{proof}
+
+\begin{corollary}
+    Todo grafo  $X$ es conexo por caminos.
+\end{corollary}
+\begin{proof}
+    Puesto que un grafo  $X$ es conexo por definición, y por el lema \ref{conexcam}, $X$ es además localmente conexo por caminos, concluimos que $X$ es conexo por caminos.
+\end{proof}
+    
+    \begin{lemma}
+        Todo grafo  $X$ es semilocalmente simplemente conexo.
+    \end{lemma}
+    \begin{proof}
+ Si $x$ es un punto interior de una arista $A_\alpha$, entonces el interior de $A_\alpha$ es un entorno $U$ tal que $\pi_1(U,x)$ es trivial. Por otro lado, si $x$ es un vértice, entonces denotamos por $\overline{St}(x)$ la unión de todas las aristas de $X$ de las que $x$ es extremo. Sea ahora $St(x)$ el subespacio obtenido al eliminar todos los vértices distintos de $x$ de $\overline{St}(x)$, $St(x)$ es entorno abierto de $x$, y además se puede retraer por deformación al vértice $x$ y, por tanto, su grupo fundamental es trivial.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{Images/retraccion.png}
+  \caption{Representación de la retracción por deformación de $St(x)$}
+\end{figure}
+\end{proof}
+
+\subsection{El espacio recubridor de un grafo}
+
+Una vez vistas las anteriores propiedades, estudiaremos ahora los espacios recubridores de los grafos. 
+
+\begin{theorem}\label{recubridor grafo}
+    Sea $p \colon E \to X$ una aplicación recubridora de un grafo  $X$. Entonces para cada componente conexa $B$ de $p^{-1}(A_\alpha$), siendo $A_\alpha$ una arista, $p$ aplica homeomórficamente $B$ en $A_\alpha$. Además, $E$ es un grafo  que tiene por aristas a las componentes conexas de los espacios $p^{-1}(A_\alpha)$. 
+\end{theorem}
+
+\begin{proof}
+
+Veamos que $p$ aplica homeomórficamente $B$ en $A_\alpha$. Como $A_\alpha$ es conexa por caminos y localmente conexa por caminos por definición, aplicando el teorema \ref{53.2} y el lema \ref{80.1} sabemos que la restricción $p_0 \colon B \to A_\alpha$ es una aplicación recubridora. Además, como $B$ es conexo por caminos, la correspondencia de levantamientos $\phi \colon \pi_1(A_\alpha,a) \to p^{-1}(a)$ es sobreyectiva por el teorema \ref{teorema 3.14}. Ahora, como $A_\alpha$ es simplemente conexo, $p^{-1}(a)$ debe ser un único punto. Concluimos que $p$ es un homeomorfismo.
+
+Veamos ahora que $E$ es un grafo  que tiene por aristas a las componentes conexas de los espacios $p^{-1}(A_\alpha)$. Como $X$ es la unión de las aristas $A_\alpha$, $E$ será la unión de los aristas $B$ que son las componentes conexas de los espacios $p^{-1}(A_\alpha)$. Dadas dos componentes conexas distintas $B$ y $B'$ de $p^{-1}(A_\alpha)$ y $p^{-1}(A_\beta)$, respectivamente, veremos que $B$ y $B'$ se cortan a lo sumo en un vértice común. Si $\alpha = \beta$ entonces $B$ y $B'$ son disjuntas, ya que son diferentes componentes conexas de $p^{-1}(A_\alpha)$. Ahora, si $\alpha \neq \beta$ y $B$ y $B'$ se cortan, $A_\alpha$ y $A_\beta$ deben tener un vértice común; entonces gracias a lo que hemos probado en el anterior párrafo sabemos que $B \cap B'$ consiste de un único punto, que deberá ser extremo de cada una.
+
+
+Queda probar que $E$ tiene la topología cociente descrita para los grafos. Para ello habrá que demostrar que dado un subconjunto $W$ de $E$ tal que $W \cap B$ es abierto en $B$, para cada arista $B$ de $E$, entonces se cumple que $W$ es abierto en $E$. 
+
+
+En primer lugar, veamos que $p(W)$ es abierto en $X$. Si $A_\alpha$ es una arista de $X$, se cumple que $p(W)\cap A_\alpha=\bigcup p(W\cap B)$, cuando $B$ recorre todas las componentes conexas de $p^{-1}(A_\alpha)$. Cada conjunto $p(W\cap B)$ es abierto en $A_\alpha$ ya que $p$ aplica homeomórficamente $B$ sobre $A_\alpha$ y, además, $W \cap B$ es abierto en $B$ por el supuesto inicial. Como $p(W)\cap A_\alpha=\bigcup p(W\cap B)$, $p(W)\cap A_\alpha$ es un abierto en $A_\alpha$, y por tanto, como la topología de $X$ es la topología cociente de los grafos, $p(W)$ es abierto en $X$.
+
+En segundo lugar, veamos que cuando $W$ está contenido en una de las rebanadas $V$ de $p^{-1}(U)$, donde $U$ es un abierto de $x$ regularmente recubierto por $p$. Acabamos de probar que $p(W)$ es abierto en $X$, y por tanto, $p(W)$ también es abierto en $U$. Como $p \vert_V \colon V \to U$ es un homeomorfismo, $W$ es un abierto en $V$ y, por tanto, también en $E$.
+
+Finalmente, probamos el caso general. Sea $\mathcal{A}$ un recubrimiento de $X$ por abiertos $U$ regularmente recubiertos por $p$. Entonces, las rebanadas $V$ de los conjuntos $p^{-1}(U)$, para $U \in \mathcal{A}$, recubren $E$. Sea ahora $W_V=W \cap V$, entonces para cada arista $B$, $W_V \cap B$ es abierto en $B$. Esto se debe a que $W_V \cap B = (W \cap B) \cap (V \cap B)$, que es una intersección de dos abiertos en $B$. Por el resultado del párrafo anterior sabemos que cada $W_V$ es abierto en $E$. Concluimos que $W$ es abierto en $E$ por ser unión de abiertos en $E$.
+
+\end{proof}
+
+
+
+
+\section{El grupo fundamental de un grafo}
+
+En esta nueva sección veremos en primer lugar una serie de propiedades sobre grafos. Y porteriormente probaremos que el grupo fundamental de un grafo es un grupo libre.
+
+\subsection{Trayectos en grafos}
+
+\begin{definition}
+    Una \textbf{arista orientada} $e$ de un grafo $X$ es una arista junto con una ordenación de sus vértices tal que $e:=(\alpha, x_0, x_1)$, con $A_\alpha$ la arista en cuestión, $x_0$ el \textbf{vértice inicial} y $x_1$ el \textbf{vértice final}. A una sucesión $e_1,...,e_n$ de aristas orientadas tal que el vértice final de $e_i$ coincide con el inicial de $e_{i+1}$ se denomina \textbf{trayecto}. Un trayecto está totalmente determinado por los vértices $x_0,...,x_n$, donde $x_0$ es el vértice inicial de $e_1$ y $x_i$ el final de $e_i$. Además, se dice que $e_1,...,e_n$ es un trayecto de $x_0$ a $x_n$. Finalmente, se dice que un trayecto determinado por los vértices $x_0,...,x_n$ es cerrado si $x_0=x_n$. 
+
+    Dada una arista orientada $e$ de $X$, sea $f_e$ un camino de $x_0$ a $x_1$ (dado por el homeomorfismo de $\alpha$ con $[0,1]$). Entonces, \[f=f_1*(f_2*(\dots*f_n))\] será un camino de $x_0$ a $x_n$ correspondiente al trayecto $e_1,...,e_n$. Si el trayecto es cerrado, entonces $f$ será un lazo.
+\end{definition}
+
+\begin{lemma}
+   Dado un grafo $X$, entonces cada par de vértices de $X$ se pueden unir por un trayecto en $X$.
+\end{lemma}
+\begin{proof}
+    Supondremos que no para todo par de vértices existe un trayecto que los une y llegaremos a una contradicción. Establecemos la relación $x \sim y$ si existe un trayecto en $X$ de $x$ a $y$. Para cualquier arista de $X$, sus extremos pertenecen a la misma clase de equivalencia. Sea ahora $Y_x$ la unión de todas las aristas tal que sus extremos pertenecen a la misma clase que $x$. $Y_x$ es un subgrafo y por tanto es cerrado en $X$. Además, los subgrafos $Y_x$ forman una partición de $X$ en subespacios cerrados disjuntos, pero esto es una contradicción ya que $X$ es conexo. De esta forma, sólo puede existir uno de esos subespacios, y cada par de vértices pueden unirse por un trayecto.
+\end{proof}
+
+
+Dado un trayecto $e_1,...,e_n$ en un grafo $X$. Puede darse el caso en que para algún $i$, las aristas orientadas $e_i$ y $e_{i+1}$ tengan la misma arista asociada aunque con orientación opuesta, es decir, $e_i:=(\alpha,x_0,x_1)$ y $e_{i+1}:=(\alpha,x_1,x_0)$. Si no se da esta situación, se dice que $e_1,...,e_n$ es un \textbf{trayecto reducido}. Si la situación ocurre, entonces se pueden eliminar $e_i$ y $e_{i+1}$ de la sucesión de aristas ordenadas y tener todavía un trayecto. A esto se le llama reducción del trayecto, proceso que se puede comprobar en el siguiente gráfico con la eliminación de las aristas orientadas $e_4$ y $e_5$:
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\textwidth]{Images/reducido.png}
+\end{figure}
+
+
+\subsection{Árboles}
+
+A continuación introduciremos el concepto de árbol y veremos algunos lemas y teoremas relacionados con ellos.
+
+\begin{definition}
+    Se denomina \textbf{árbol} a un subgrafo $T$ de un grafo $X$ que no contiene trayectos reducidos cerrados.
+\end{definition}
+
+En la siguiente figura se puede ver como $Y$ es un árbol de $X$ mientras que $Z$ no lo es ya que contiene un trayecto reducido cerrado:
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{Images/arbol.png}
+  \caption{Representación del subgrafo $Y$ de $X$ que es un árbol y del subgrafo $Z$ que no lo es.}
+\end{figure}
+
+\begin{lemma}\label{5.13}
+    Si $T$ es un árbol en $X$ y $A$ es una arista que corta a $T$ en un único vértice, entonces $T \cup A$ es un árbol. Recíprocamente si $T$ es un árbol en $X$ formado por más de una arista, entonces existe un árbol $T_0$ en $X$ y una arista $A$ tal que $T=T_0 \cup A$, siendo $T_0$ un árbol en $X$.
+\end{lemma} 
+\begin{proof}
+    Comenzaremos probando que dado un árbol $T$ en $X$, y una arista $A$ que corta a $T$ en un único vértice, entonces $T \cup A$ es un árbol. Al ser una unión de dos conjuntos conexos con un punto en común, $T \cup A$ es conexo. Supongamos ahora que existe un trayecto reducido cerrado en dicha unión, y veamos que llegamos a una contradicción. Sean $a$ y $b$ los vértices de $A$ y tal que $A \cap T = a$. Supongamos ahora que existe un trayecto reducido cerrado $x_0,...,x_n=x_0$, y consideremos los casos posibles: Si ninguno de los vértices del trayecto es igual a $b$, entonces el trayecto está en $T$, lo que va en contra de la hipótesis de que $T$ es un árbol. Ahora, si $x_i=b$ para algún $i$ con $0<i<n$, entonces tendremos $a=x_{i-1}=x_{i+1}$, no siendo reducido el trayecto, otra vez en contra de la hipótesis. Por último, si $x_0=b=x_n$, y $x_i \neq b$ para $i=1,...,n-1$, entonces $a=x_1=x_{n-1}$, y la sucesión de vértices $x_1,...,x_n-1$ sería un trayecto reducido cerrado en $T$, de nuevo en contra de la hipótesis.
+
+    Probemos ahora la segunda parte. Dado $T$ un árbol, supongamos que no existe ningún vértice $b$ de $T$ que pertence únicamente a una arista. Si fuese así, podemos construir un trayecto reducido cerrado como sigue: comenzando en un vértice $x_0$, escogemos una arista $e_1$ que tenga a $x_0$ como vértice y la orientamos de forma que $x_0$ sea su vértice inicial. Sea ahora $x_1$ el vértice final de $x_1$, escogemos otra arista $e_2$ que tenga a $x_1$ por vértice y la orientamos de la misma forma que antes. Dado que $T$ tiene un número de aristas finito por definición, llegaremos a un índice tal que $x_n=x_i$ para algún $i<n$. Así habremos construido un trayecto reducido cerrado dado por $x_i,x_{i+1},...,x_n$, en contra de la hipótesis.
+
+    Finalmente, vemos que existe un árbol $T_0$ en $X$ tal que $T_0 \cup A=T$. Sea $b$ un vértice que pertenece a una única arista $A$ de $T$, y sea $T_0$ la unión de todas las aristas de $T$ diferentes de $A$. Entonces $T= T_0 \cup A$ y como $T$ es conexo, $T_0$ deberá cortar a $A$ en su otro vértices $a$. Es claro que $T_0$ es un árbol ya que no tiene trayectos reducidos cerrados al no tenerlos $T$. Además, $T_0$ es conexo, ya que si no lo fuese, sería la unión de dos conjuntos cerrados disjuntos y $a$ sólo pertenecería a uno. Lo que implicaría que $T$ no es conexo, en contra de la hipótesis.
+    
+\end{proof}
+
+
+
+
+\begin{theorem}
+    Todo árbol $T$ es simplemente conexo.
+\end{theorem}
+\begin{proof}
+    Aplicamos el método de inducción sobre el número de aristas:
+    
+    Caso $(1)$: Si $T$ está formado por una única arista, entonces $T$ es simplemente conexo.
+
+    Caso $(n-1)$ implica  Caso $(n)$: Suponemos que un árbol $T$ formado por $n-1$ aristas es simplemente conexo y sea $T$ un árbol formado por $n$ aristas. Entonces por el lema \ref{5.13}, $T=T_0 \cup A$, donde $T_0$ es un árbol con $n-1$ aristas y $A\cap T_0$ es un único vértice. Entonces $T_0$ es un retracto por deformación de $T$, colapsando la arista $A$ al vértice $A\cap T_0$, y como $T_0$ es simplemente conexo por hipótesis de inducción, también lo es $T$.
+\end{proof}
+
+A continuación definiremos el concepto de árbol maximal y veremos dos teoremas al respecto.
+
+\begin{definition}
+    Se dice que un árbol $T$ en un grafo  $X$ es \textbf{maximal} si no existe otro árbol en $X$ que contenga propiamente a $T$.
+\end{definition}
+
+\begin{theorem}
+    Dado un grafo conexo $X$, un árbol $T$ en $X$ es maximal si y solo si contiene a todos los vértices de $X$.
+\end{theorem}
+
+\begin{proof}
+    $(\Leftarrow)$ Vamos a probar que si $Y$ es un subgrafo de $X$ que contiene propiamente a $T$, entonces $Y$ tiene un trayecto reducido cerrado. De esta forma $Y$ no es un árbol y $T$ es maximal. Sea $A$ una arista que no está en $T$. Sus dos extremos $a$ y $b$ están en $T$ y, por tanto, podemos encontrar un trayecto reducido en $T$ de $a$ a $b$. Si ahora añadimos la arista $A$ orientada de $b$ a $a$ al anterior trayecto, obtenemos un trayecto reducido cerrado que está en $Y$.
+
+    $(\Rightarrow)$ Ahora supondremos que $T$ no contiene todos lo vértices de $X$ y veremos que $T$ no es maximal. Sea $v_0$ un vértice que no está en $T$, como $X$ es conexo podemos entontrar un trayecto en $X$ de $v_0$ a un vértice de $T$, especificado por la sucesión de vértices $x_0,...,x_n$. Si $i$ es el menor índice para el cual $v_i$ es un vértice de $T$, entonces sea $A$ la arista con extremos $x_{i-1}$ y $ x_i$, entonces por el lema \ref{5.13} $T \cup A$ es un árbol en $X$ y contiene propiamente a $T$.
+\end{proof}
+
+\begin{theorem}
+    Todo árbol $T_0$ en un grafo  $X$ está contenido en un árbol maximal en $X$. 
+\end{theorem}
+\begin{proof}
+    Consideramos el lema de Zorn (Ver en \ref{Zorn}) a la colección $\mathcal{T}$ de todos los árboles en $X$ que contienen a $T_0$, estrictamente parcialmente ordenada por inclusión propia. Entonces, para probar nuestro lema tenemos que demotrar lo siguiente:
+    Si $\mathcal{T}'$ es una subcolección de $\mathcal{T}$ que está simplemente ordenada por la inclusión propia, entonces la unión $Y$ de los elementos de $\mathcal{T}'$ es un árbol en $X$.
+
+    Como $Y$ es la unión de subgrafos de $X$, $Y$ es a su vez un subgrafo. Además, como $Y$ es la unión de espacios conexos que contienen a $T_0$, entonces $Y$ es conexo.
+
+    Por reducción al absurdo supondremos que existe un trayecto reducido cerrado en $Y$ dado por $e_1,...,e_n$. Para cada $e_i$, escogemos un árbol $T_i$ de $\mathcal{T}'$ que contenga a dicha arista ordenada. Como la colección $\mathcal{T}'$ está simplemente ordenada por inclusión propia, uno de los árboles $T_1,...,T_n$ contendrá al resto. Esto implica que $e_1,...,e_n$ es un trayecto cerrado en dicho árbol, lo que no puede ocurrir por ser árbol.
+\end{proof}
+
+\subsection{El grupo fundamental de un grafo}
+
+Ahora calcularemos el grupo fundamental de un grafo. Para ello, necesitaremos el siguiente resultado:
+
+\begin{lemma}\label{84.6}
+    Supongamos que $X$ es la unión de los conjuntos abiertos $U$ y $V$. Además, supongamos que $U\cap V=A\sqcup B$, con $A$ y $B$ son abiertos conexos por caminos; que $\alpha$ es un camino en $U$ desde el punto $a\in A$ al punto $b\in B$; y que $\beta$ es un camino en $V$ de $b$ hasta $a$. Entonces, si $U$ y $V$ son simplemente conexos, el grupo fundamental $\pi_1(X,a)$ está generado por la clase $[\alpha * \beta]$.
+\end{lemma}
+
+\begin{proof}
+    Sea $f$ un lazo basado en $a$, y sea $0=a_0<a_1<...<a_n=1$ una subdivisión del intervalo $[0,1]$ tal que $f(a_i)\in U\cap V$, y tal que $f$ aplica cada $[a_{i-1},a_i]$ únicamente en $U$ o únicamente en $V$. Sea ahora $f_i$ un camino de $a_{i-1}$ a $a_i$ que esté sólo en $U$ o sólo en $V$. Entonces $[f]=[f_1]*...*[f_n]$. Para cada $i=1,..,n-1$, sea $\alpha_i$ un camino ya en $A$ desde $a$ hasta $f(a_i)$, o en $B$ desde $b$ a $f(a_i)$ dependiendo de si $f(a_i) \in A$ (primer caso) o $f(a_i) \in B$ (segundo caso). Elegimos ahora $a_0$ y $a_n$ como los lazos constantes en $a$, y definimos
+    \[g_i=\alpha_{i-1}*(f_i* \overline{\alpha}_i)\]
+    que es un camino de $b$ a $a$. 
+    Entonces podemos representar $[f]$ como:
+    \[[f]=[f_1]*\cdots *[f_n]=\]
+    \[[\alpha_0 *(f_1 * \overline{\alpha}_1))]*[\alpha_1 *(f_2 * \overline{\alpha}_2))]*\cdots *[\alpha_{n-2} *(f_{n-1} * \overline{\alpha}_{n-1}))]*[\alpha_{n-1} *(f_n * \overline{\alpha}_n))]=\]
+    \[[g_1]*\cdots *[g_n]\]
+    Además, como cada $g_i$ es un camino ya en $U$ ya en $V$ (dependiendo de dónde aplique $f_i$) con extremos en el conjunto $\{a,b\}$, y como $U$ y $V$ son simplemente conexos, $g_i$ es homotópico a una constante, ya a $\alpha,\beta,\overline{\alpha}$, ó $\overline{\beta}$. Finalmente, como $[f]=[g_1]*...*[g_n]$, se tiene que $[f]$ es trivial, o bien una potencia positiva de $[\alpha * \beta]$ ó $[\overline{\alpha}*\overline{\beta}]$. De esta forma podemos concluir que el grupo $\pi_1(X,a)$ está generado por $[\alpha * \beta]$.
+
+    \begin{figure}[H]
+  \centering
+  \includegraphics[width=0.7\textwidth]{Images/84.6.png}
+  \caption{Representación del $\pi_1(X,a)$ generado por $[\alpha * \beta]$}
+\end{figure}
+    \end{proof}
+
+\begin{theorem}
+    El grupo fundamental de un grafo $X$ que no es un árbol, es un grupo libre no trivial. Además, si $T$ es un árbol maximal en $X$, entonces el sistema de generadores de $X$ corresponde de forma biyectiva con la colección de aristas de $X$ que no están en $T$.
+\end{theorem}
+
+\begin{proof}
+    Comenaremos explicando cómo son los lazos  que consideraremos en $X$. Sea $T$ un árbol maximal en $X$ (contiene todos los vértices de $X$), y un vértice fijo $x_0$. Enconces para cada vértice $x$ de $X$, escogeremos un camino $\gamma_x$ contenido en $T$ que vaya de $x_0$ a $x$. De esta forma, para cada arista $A$ de $X$ que no está en $T$, definimos los lazos $g_A$ como sigue. Orientamos $A$ y sea $f_A$ un camino  en $A$ desde su vértice inicial $x$ hasta el vértice final $y$. Definimos el lazo $\gamma_y$ como un camino en $T$ desde $x_0$ a $y$, y el lazo $g_A$ como 
+    \[g_A=\gamma_x*(f_A * \overline{\gamma}_y)\]
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{Images/graf1.png}
+  \caption{Representación del lazo $g_A=\gamma_x*(f_A * \overline{\gamma}_y)$}
+\end{figure}
+
+
+    Primero veremos que si el número de  aristas que no están en $T$ es 1, entonces, si $D$ es esa arista, la clase $[g_D]$ genera $\pi_1(X,x_0)$. A continuación supondremos que para un conjunto de aristas $A_1,...,A_{n-1}$, $\pi_1(X,x_0)$ estará generado por $[g_1],...,[g_{n-1}]$, si $g_i=g_{A_i}$. Y probaremos por inducción el resultado para todo $n$.
+
+    Caso $(1):$ Sea $D$ la arista que no está en $T$. Sean $a_0$ y $a_1$ los vértices inicial y final de $D$, respectivamente. Representemos ahora $D$ como 3 aristas, $D_1$ con extremos $a_0$ y $a$; $D_2$ con extremos $a$ y $b$; y $D_3$ con extremos $b$ y $a_1$. Además, sean $f_1$, $f_2$ y $f_3$ los caminos es en $D$ que van de $a_0$ a $a$, de $a$ a $b$, y de $b$ a $a_1$, respectivamente. Calculamos $\pi_1(X,a)$: escogemos un punto $p$ interior al $D_2$, y definimos los abiertos $U=D-a_0-a_1$ y $V=X-p$. Entonces, $X= U \cup V$, $U$ es simplemente conexo porque es una arista abierta, y $V$ también lo es por tener al árbol $T$ como retracto de deformación. Además, $U \cap V= U - p$, que tiene dos componentes conexas, sea $A$ la que contiene a $a$, y $B$ la que contiene a $b$. 
+    
+    \begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\textwidth]{Images/graf2.png}
+  \caption{Representación del caso 1.}
+\end{figure}
+    
+    Ahora, el camino $\alpha=f_2$ es un camino en $U$ desde $a$ hasta $b$; y el camino \linebreak $\beta=(f_3*(\overline{\gamma_1}*(\gamma_0*f_1)))$, con $\gamma_i=\gamma_{a_i}$, es un camino en $V$ de $b$ hasta $a$. Por tanto, podemos aplicar el lema \ref{84.6}, concluyendo que $\pi_1(X,a)$ está generado por la clase \[[\alpha*\beta]=[f_2]*[f_3]*[\overline{\gamma_1}]*[\gamma_0]*[f_1]\]
+    Entonces, $\pi_1(X,x_0)$ estará generado por $\hat{\delta}[\alpha*\beta]$, donde $\hat{\delta}$ es el camino $\overline{f_1}*\overline{\gamma_0}$ de $a$ a $x_0$. Calculamos esta clase de homotopía de caminos de la siguiente manera: \[\hat{\delta}[\alpha*\beta]=[\gamma_0*f_1]*[\alpha*\beta]*[\overline{f_1}*\overline{\gamma_0}]=\]
+    \[=[\gamma_0]*[f_D]*[\overline{\gamma_1}]=[g_D]\]
+    Concluimos que $[g_D]$ genera $\pi_1(X,x_0)$. Demostramos ahora que el $[g_D]$ tiene orden infinito de manera que $\pi_1(X,x_0)$ es cíclico infinito. Si consideramos la aplicación $\pi \colon X \to S^1$ que colapsa $T$ en un punto $p$ y aplica homeomórficamente el interior de $D$ sobre $S^1-p$.
+    
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\textwidth]{Images/graf3.png}
+  \caption{Representación de la aplicación $\pi \colon X \to S^1$.}
+\end{figure}
+    
+    Entonces $\pi \circ \gamma_0$ y $\pi \circ \overline{\gamma_1}$ son caminos constantes, así que $\pi_*([g_D])=[\pi*f_D]$, clase que genera $\pi_1(S^1,p)$, y por tanto, $[g_D]$ tiene orden infinito en $\pi_1(X,x_0)$.
+
+    Caso $(n):$ Suponemos el resultado cierto para $n-1$ y probamos el resultado para $n$. Sean $A_1,...,A_n$ las aristas de $X$ que no están en $T$, donde $n>1$. Orientamos las aristas y para cada $i$, escogemos un punto $p_i$ interior a $A_i$. Sean 
+    \begin{center}
+        $U=X-p_2-...-p_n$ y $V=X-p_1$
+    \end{center}
+    Entonces $U$ y $V$ son abiertos en $X$, y $U \cap V=X-p_1-...-p_n$ es simplemente conexo, ya que tiene a $T$ por detracto de deformación. Por tanto, $\pi_1(X,x_0)$ es el producto libre de los grupos $\pi_1(U,x_0)$ y $\pi_1(V,x_0)$ por el teorema de Seifert-van Kampen.
+    Ahora, como $U$ tiene a $T \cup A_1$ por detracto de deformación, $\pi_1(U,x_0)$ es libre sobre el generador $[g_1]$ como hemos probado en el caso $(1)$. Por otra parte, por hipótesis de inducción, $\pi_1(V,x_0)$ es libre sobre los generadores $[g_2],...,[g_n]$ por tener a $T\cup A_2,\cup ... \cup A_n$ como retracto de deformación. Concluimos entonces que $\pi_1(X,x_0)$ es libre sobre los generadores $[g_1],...,[g_n]$.
+    
+    \end{proof}
+
+\subsection{Ejemplos}
+
+Ahora calcularemos el cardinal de un sistema de generadores libres para diferentes grafos.
+
+\begin{example}
+    Un \textbf{grafo completo} es un grafo donde todo par de vértices diferentes están conectados por una única arista.
+    
+    Calculemos ahora el cardinal de un sistema de generadores libres para el grupo fundamental del grafo completo sobre $n$ vértices. El número total de aristas es $\binom{n}{2}$, y un árbol maximal en dichos grafos se compone de $n-1$. Esto se debe a que si fijamos un vértice $v$ del grafo y escogemos todas las aristas que tienen por uno de sus extremos a $x$, formaremos un árbol maximal formado por $n-1$ aristas ya que habrá una arista por cada vértice restante de $X$ quitando $x$. De esta forma podemos concluir que el cardinal de un sistema de generadores libres del grafo será $\binom{n}{2} - (n-1)$, ya que ese será el número de aristas de $X$ que no están en $T$.
+
+    Por ejemplo, si consideramos el grafo completo de 4 vértices. El cardinal de un sistema de generadores libres del grafo será 
+        \[\binom{4}{2} - (4 - 1) = \frac{4!}{2!(4-2)!} - (4 - 1)= 3,
+\]
+como se puede comprobar en la siguiente figura
+
+
+        \begin{figure}[H]
+  \centering
+  \includegraphics[width=0.3\textwidth]{Images/completo.png}
+  \caption{Representación del grafo completo de 4 vértices y de un árbol maximal (subgrafo con aristas rojas).}
+\end{figure}
+\end{example}
+
+\begin{example}
+    Sea ahora $X$ el grafo de servicios dado por la siguiente imagen:
+    \begin{figure}[H]
+  \centering
+  \includegraphics[width=0.45\textwidth]{Images/servicios2.png}
+  \caption{Representación del grafo de servicios.}
+\end{figure}
+
+    El árbol $T$ formado por los vértices y aristas en rojo es un árbol maximal por contener todos los vértices de $X$. El cardinal de un sistema de generadores libres del grafo será $4$, ya que es el número aristas de $X$ que no están en $T$.
+\end{example}
+
+
+\begin{example}
+    Dada la aplicación recubridora del ejemplo \ref{ejrecub}, ahora calcularemos el cardinal de un sistema de generadores libres para el grupo fundamental de $E$. Puesto que $E$ está formado por 4 círculos tal que cada uno se une con el siguiente por un punto, este espacio se puede representar como un grafo. Para ello cada círculo se representa por un grafo de tres aristas como en el ejemplo \ref{5.3} y se puede obtener un árbol maximal (representado en rojo) de 8 aristas quedando libres 4:
+
+
+    \begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{Images/ejEX.png}
+  \caption{Representación del espacio $E$ como un grafo y de un árbol maximal (subgrafo rojo).}
+\end{figure}
+
+
+    Por ello, un sistema de generadores libres de $E$ tendrá cardinal $4$, algo que concuerda con lo calculado en el ejemplo \ref{5.3}, donde vimos que el subgrupo \linebreak $H=p_*(\pi_1(E,e_0))$ de $\pi_1(X,x_0)$ estaba generado por $<A,B,ABA,BAB>$.
+
+    
+
+    
+\end{example}
+
+\section{Número de Euler}
+
+Ahora estudiaremos una propiedad de los grafos y la aplicaremos a unos ejemplos.
+
+\begin{definition}
+    \textbf{El número de Euler} de un grafo $X$ se define como el número de vértices de $X$ menos el número de aristas de $X$. 
+\end{definition}
+
+
+\begin{theorem}\label{euler}
+    El número de Euler de un grafo $X$ es un invariante topológico de $X$.
+\end{theorem}
+\begin{proof}
+    Es fácil comprobar que la operación de subdivisión de una arista en 2 con un vértice más (el que las une) es una operación que da lugar a un grafo homeomorfo. Lo mismo ocurre para la operación opuesta si el vértice que las une sólo pertenece a esas dos aristas.
+
+    De esta forma el número de Euler de un grafo $X$ (conexo y finito) es invariante por homeomorfismos ya que los números de aristas y vértices, se reducen o aumentan en la misma cantidad al cambiar a otro grafo homeomorfo por las operaciones anteriores. De esta forma su resta resulta en el mismo número, siendo el número de Euler un invariante topológico de los grafos.
+\end{proof}
+
+
+
+\begin{example}
+    A continuación calcularemos el número de Euler de grafos. Recordamos que el número de Euler es el número de vértices de un grafo  menos su número de aristas.
+
+    $(a)$ El número de Euler de una arista es $-1$, ya que únicamente hay una arista y ningún vértice.
+
+    $(b)$ El número de Euler de un círculo es $0$, ya que como vimos en el ejemplo \ref{5.3}, el círculo se puede expresar como la unión de 3 aristas por 3 vértices, y además el número de Euler es un invariante topológico como vimos en el Teorema \ref{euler}. 
+
+    $(c)$ El número de euler de una unión por un punto de $n$ círculos será $-n+1$. Esto se debe a que estará formado por $3n$ aristas y $2n+1$ vértices.
+
+    $(d)$ El número de Euler de un grafo completo de $n$ vértices será  $n-\binom{n}{2}$, ya que el número de aristas es $\binom{n}{2}$.
+
+
+    $(e)$ Sea $E$ un espacio recubridor de $n$ hojas de $X$. Entonces el número de Euler de $E$ es $n$ veces el de $X$. Esto se debe a que para cada vértice $v$ de $X$, $p^{-1}(v)$ dará lugar a $n$ vértices en $E$ por lo probado en \ref{k-hojas} y el teorema \ref{recubridor grafo}. Además, esto mismo ocurrirá con los interiores de las aristas, que darán logar a otras dos componentes conexas $B$ y $B'$ disjuntas que actuarán como aristas en $E$.
+\end{example}

@@ -1,0 +1,515 @@
+\chapter{Clasificación de Espacios Recubridores}
+\label{ch:classif_rec}
+
+En este capítulo adoptaremos el siguiente convenio: el hecho de que $p \colon E \to B$ sea una aplicación recubridora incluirá la hipótesis de que $E$ y $B$ son localmente conexos por caminos y conexos por caminos, a menos que se especifique lo contrario.
+
+Dada una aplicación recubridora $p\colon E \to B$ con $p(e_0)=b_0$ (Ver Definición \ref{def a.r}), el homomorfismo inducido $p_*$ es inyectivo por el Teorema \ref{teorema 54.6}, por lo que 
+\[H_0=p_*(\pi_1(E,e_0))\]
+es un subgrupo de $\pi_1(B,b_0)$ isomorfo a $\pi_1(E,e_0)$.
+En este capítulo estudiaremos la relación entre estos subgrupos $H_0$ y los recubridores $p$ que quedarán totalmente determinados por ellos, salvo una noción de equivalencia que veremos a continuación. De esta forma se podrán precisar todos los espacios recubridores de $B$ simplemente examinando la colección de los subgrupos de $\pi_1(B,b_0)$.
+
+\section{Equivalencia de aplicaciones recubridoras}
+
+Definamos ahora esa equivalencia entre espacios recubridores:
+
+\begin{definition} \label{equivalencia}
+Diremos que dos aplicaciones recubridoras $p \colon E \to B$ y $p' \colon E' \to B$ son \textbf{equivalentes} si existe un homeomorfismo $h \colon E \to E'$ tal que $p = p' \circ h$. Llamaremos a este homeomorfismo $h$ \textbf{equivalencia de aplicaciones recubridoras} o \textbf{equivalencia de espacios recubridores}.
+
+\centering
+$
+\xymatrix{
+  E \ar[rr]^{h} \ar[dr]_{p} & & E' \ar[dl]^{p'}\\
+  &B\\
+}
+$
+\end{definition}
+
+A continuación probaremos la existencia de una equivalencia $h$ entre dos aplicaciones recubridoras $p\colon E \to B$ y $p' \colon E' \to B$ cuyos subgrupos correspondientes $H_0=p_*(\pi_1(E,e_0))$ y $H_0'=p'_*(\pi_1(E',e'_0))$ son iguales. Para ello primero veremos la generalización del lema del levantamiento visto en el anterior capítulo (Lema \ref{lema del levantamiento}):
+
+\begin{lemma}\label{prop 79.1}
+    Dada una aplicación recubridora $r \colon Y \to B$ con $r(y_0)=b_0$ y una aplicación continua $f \colon E \to B$ con $f(e_0)=b_0$. Si $E$ es conexo por caminos y localmente conexo por caminos, entonces existe un único levantamiento $\widetilde{f}$ en $Y$, tal que $\widetilde{f}(e_0)=y_0$ si, y sólo si
+\[f_{*}(\pi_1(E,e_0)) \subset r_{*}(\pi_1(Y,y_0))\]
+\end{lemma}
+\begin{proof}
+    La prueba se puede consutar en \cite[Lema 79.1]{Topología}. 
+\end{proof}
+A continuación veremos las propiedades de la relación entre dos grupos conjugados\footnote{Puede verse la definición de grupo conjugado en el Anexo, Definición \ref{conjugados}.} del tipo $H_i:=p_*(\pi_1(E,e_i))$ siendo $p \colon E \to B$ una aplicación recubridora:
+
+\begin{lemma} \label{lema 79.3}
+    Dada $p \colon E \to B$ una aplicación recubridora y dos puntos $e_0,e_1 \in p^{-1}(b_0)$ tal que $H_i=p_*(\pi_1(E,e_i))$, entonces: 
+
+    $(a)$ Si existe un camino $\gamma$ en $E$ de $e_0$ a $e_1$ y $\alpha = p \circ \gamma$ es un lazo en $B$, entonces $[\alpha]*H_1*[\alpha]^{-1}=H_0$, y por tanto, $H_0$ y $H_1$ son subgrupos conjugados.
+
+    $(b)$ Dado $H$ un subgrupo de $\pi_1(B,b_0)$ conjugado de $H_0=p_*(\pi_1(E,e_0))$, existe un punto $e_1 \in p^{-1}(b_0)$ tal que $H_1=H$.
+\end{lemma}
+
+    \begin{proof}
+        $(a)$ Primero probaremos que $[\alpha]*H_1*[\alpha]^{-1} \subset H_0$, siendo $\gamma$ un camino en $E$ de $e_0$ a $e_1$ y $\alpha$ el lazo $p\circ \gamma$ en $B$. Dado $[h] \in H_1$, por ser elemento de $H_1$ existe un lazo $\widetilde{h}$ en $E$ basado en $e_1$ tal que $[h]=p_*([\widetilde{h}])$.
+
+        Sea ahora $\widetilde{k}$ el camino $\widetilde{k}=\gamma * \widetilde{h}*\overline{\gamma}$ (donde $\overline{\gamma}$ denota el camino inverso) que es un lazo en $E$ basado en $e_0$ y además
+        \[p_*([\widetilde{k}])=[p\circ (\gamma * \widetilde{h}*\overline{\gamma})]=[(p \circ \gamma)*(p \circ \widetilde{h})*(p \circ \overline{\gamma})]=\]
+            \[=[\alpha * h*\overline{\alpha}]=[\alpha]*[h]*[\overline{\alpha}]=[\alpha]*[h]*[\alpha]^{-1},\]
+        por lo que $[\alpha]*[h]*[\alpha]^{-1}$ pertenece a $p_*(\pi_1(E,e_0))$ como queríamos probar. 
+
+        
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\textwidth]{Images/79.2 dem.PNG}
+  \caption{Representación del camino $\gamma$ y los lazos $\alpha$ y $h$.}
+\end{figure}
+        
+        Por otro lado, como $\overline{\gamma}$ es un camino de $e_1$ a $e_0$ y $\overline{\alpha}=p\circ \overline{\gamma}$, el resultado anterior implica que $[\overline{\alpha}]*H_0*[\overline{\alpha}]^{-1} \subset H_1$, y por tanto $[\alpha]*H_1*[\alpha]^{-1}=H_0$, y $H_0$ y $H_1$ son grupos conjugados.
+
+        $(b)$ Sean ahora $e_0$ un punto y $H$ conjugado de $H_0$. Por definición $H_0=[\alpha]*H*[\alpha]^{-1}$ para algún lazo $\alpha$ en $B$ basado en $b_0$. Sea ahora $\gamma$ el levantamiento de $\alpha$ a un camino en $E$ de $e_0$ a $\gamma(1)=e_1$. Entonces por $(a)$ tenemos que $H_0=[\alpha]*H_1*[\alpha]^{-1}$, con lo que $H_0=[\alpha]*H_1*[\alpha]^{-1}=[\alpha]*H*[\alpha]^{-1}$, concluyendo que $H=H_1$.
+
+        
+    \end{proof}
+
+
+Ahora utilizaremos los subgrupos conjugados de $\pi_1(B,b_0)$ para determinar una equivalencia entre recubridores:
+
+\begin{theorem}[Caracterización de aplicaciones recubridoras]\label{th 4.4}
+    Dos aplicaciones recubridoras $p \colon E \to B$ y $p' \colon E' \to B$ con $p(e_0)=p'(e_0')=b_0$, serán equivalentes si, y sólo si,
+    \begin{center}
+        $H_0=p_*(\pi_1(E,e_0))$ y $H'_0=p'_*(\pi_1(E',e'_0))$
+    \end{center}
+    son subgrupos de $\pi_1(B,b_0)$ conjugados.
+\end{theorem}
+    \begin{proof}
+    Primero mostraremos el siguiente teorema:
+    
+    \begin{theorem}\label{th 79.2} Existe una equivalencia $h:E\rightarrow E'$ con $h(e_0)=e_0' $ si, y sólo si, $H_0=H_0'$. 
+    \end{theorem}
+    \begin{proof}
+    $(\rightarrow)$ Dada la equivalencia $h$, por ser homeomorfismo se cumple que $h_*(\pi_1(E,e_0))=\pi_1(E',e_0')$. Aplicando $p'$ a $h_*(\pi_1(E,e_0))=\pi_1(E',e_0')$ en ambos lados de la ecuación se tiene que $(p' \circ h)_*(\pi_1(E,e_0))=p_*'(\pi_1(E',e_0'))=H_0'$. Además, como $p' \circ h = p$, se obtiene que $(p' \circ h)_*(\pi_1(E,e_0))=p_*(\pi_1(E,e_0))=H_0$, concluyendo que $H_0=H_0'$.
+
+    $(\leftarrow)$ Ahora supondremos que $H_0=H_0'$ y probaremos la existencia de una equivalencia $h \colon E \to E'$ tal que $h(e_0)=e_0'$. 
+    
+    Como $p'$ es una aplicación recubridora y $E$ es conexo por caminos y localmente conexo por caminos, por el lema \ref{prop 79.1} sabemos que existe una aplicación \linebreak $h \colon E \to E'$, con $h(e_0)=e_0'$ que es un levantamiento de $p$ tal que $p' \circ h = p$. Lo mismo se puede hacer para obtener un levantamiento $k \colon E' \to E$ de $p'$ tal que $p \circ k = p'$ tal que $k(e_0')=e_0$.
+
+    Ahora consideramos la aplicación $k \circ h \colon E \to E$, que es un levantamiento de $p$ con $(k \circ h)(e_0)=e_0$ ya que $p \circ k \circ h=p' \circ h = p$. Por otra parte, la identidad ${id}_E$ de $E$ es otro de esos levantamientos, y por unicidad de los levantamientos de caminos se tiene que $k \circ h = {id}_E$. De forma similar se llega a que $h \circ k = {id}_{E'}$.
+    
+     Ahora, como $h$ es continua y tiene una inversa continua a ambos lados, que es $k$, $h$ es un homeomorfismo. En particular, $h$ es único por construcción.
+    \end{proof}
+        
+    Una vez hecho esto, demostraremos la equivalencia del teorema:
+    
+        $(\rightarrow)$ Si $h \colon  E \to E'$ es una equivalencia, sean $e_1'=h(e_0)$ y $H_1'=p_*(\pi_1(E',e_1'))$. Por el teorema \ref{th 79.2} que acabamos de probar, llegamos a que $H_0=H_1'$, y mediante el lema \ref{lema 79.3} concluimos que $H_1'=H_0$ y $H_0'$ son subgrupos conjugados de $\pi_1(B,b_0)$.
+
+        $(\leftarrow)$ Por otra parte, si los grupos $H_0'$ y $H_0$ son conjugados, el lema \ref{lema 79.3} implica la existencia de un punto $e_1'$ de $E'$ tal que $H_1'=H_0$. Finalmente, por el teorema \ref{th 79.2} existe una equivalencia $h \colon E \to E'$ tal que $h(e_0)=e_1'$ concluyendo que $p$ y $p'$ son aplicaciones recubridoras equivalentes.
+    \end{proof}
+
+\subsection{Ejemplos}
+
+\begin{example}\label{ejemplo 4.5}
+A continuación veremos los dos ejemplos de recubridores de $S^1$ vistos en los Ejemplos \ref{thm:recubridor_S1}  y  \ref{resumen cap3}. Puesto que $\pi_1(S^1,b_0)\cong \mathbb{Z}$ es un grupo abeliano, dos subgrupos serán conjugados si, y sólo si, son iguales.
+
+En primer lugar, ya vimos el recubridor $p \colon \mathbb{R} \to S^1$ del Ejemplo \ref{thm:recubridor_S1} dado por 
+\[p(x) = (\cos(2\pi x), \sin(2\pi x)),
+\]
+el cual debe corresponder al subgrupo trivial de $\pi_1(S^1,b_0)$ ya que $\mathbb{R}$ es simplemente conexo, luego $\pi_1(\mathbb{R},e_0)=0$ y $p_*(\pi_1(\mathbb{R},e_0))=0$, para cualquier elección de punto base $e_0$. 
+
+Por otra parte, como $\pi_1(S^1,b_0)$ es isomorfo a $\mathbb{Z}$, los subgrupos de $\mathbb{Z}$ vienen dados por los múltiplos de $n$ denotados por $n\mathbb{Z}$, para algún $n \in \mathbb{Z}_+$. Además, en el Ejemplo \ref{resumen cap3} estudiamos el recubridor $p' \colon S^1 \to S^1$ definido por $p'(z)=z^n$, con $z\in \mathbb{C}$, donde $p'_*$ llevaba un generador de $\pi_1(S^1,b_0)$ en $n$ veces él mismo, concluyendo que el grupo $p'_*(\pi_1(S^1,b_0))$ se corresponde con el subgrupo $n\mathbb{Z}$ de $\mathbb{Z}$.
+
+Ahora bien, conocemos todos los subgrupos de $\mathbb{Z} \cong \pi_1(S^1,b_0)$, que son los $n\mathbb{Z}$, y además sabemos que el Teorema \ref{th 4.4} establece que dos aplicaciones recubridoras son equivalentes si, y sólo si, los subgrupos $H_0$ y $H_0'$ de $\pi_1(B,b_0 \cong) \mathbb{Z}$ son conjugados. Por otra parte, como $\mathbb{Z}$ es abeliano, se tiene que dos subgrupos son conjugados si, y sólo si, son iguales, por lo que la aplicación recubridora $p \colon \mathbb{R} \to S^1$ con $p(x) = (\cos(2\pi x), \sin(2\pi x)$ es equivalente a $p' \colon S^1 \to S^1$ definida como $p'(z)=z^1$, ya que $H_0=p_*(\pi_1(\mathbb{R},e_0))=H_0'=p'_*(\pi_1(S^1,e_0))=\mathbb{Z}$. En cambio, el resto de recubridores no son equivalentes entre sí ya que para $n \neq m$, $n\mathbb{Z} \neq m\mathbb{Z}$. 
+\end{example}
+
+
+
+\begin{example} \label{4.7}
+Ahora consideraremos el toro $T=S^1 \times S^1$ con el isomorfismo de $\pi_1(T, (b_0, b_0))$ con $\mathbb{Z} \times \mathbb{Z}$ inducido por la proyección de $T$ sobre cada uno de los factores. Además, consideraremos las aplicaciones recubridoras $p \colon \mathbb{R} \to S^1$, definida como $p(x) = (\cos(2\pi x), \sin(2\pi x)$, y $p_n' \colon S^1 \to S^1$, con $p_n'(z)=z^n$, vistas en los Ejemplos \ref{thm:recubridor_S1}  y  \ref{resumen cap3}. A continuación vamos a encontrar los espacios recubridores de $T$ correspondientes a diferentes subgrupos de $\mathbb{Z} \times \mathbb{Z}$:
+
+$(a)$ El subgrupo de $\mathbb{Z} \times \mathbb{Z}$ generado por el elemento $(m, 0)$, siendo $m$ un entero positivo (es decir, $m\mathbb{Z} \times \{0\}$), se corresponde con el espacio recubridor $S^1 \times \mathbb{R}$ por medio de la aplicación recubridora $p'_m \times p$ construida a partir de las aplicaciones recubridoras $p$ y $p_m'$ (véase Teorema \ref{teorema 3.6} para el producto de aplicaciones recubridoras).
+
+$(b)$ El subgrupo trivial de $\mathbb{Z} \times \mathbb{Z}$ (es decir,  $\{0\} \times \{0\}$) se corresponde con el espacio recubridor $\mathbb{R} \times \mathbb{R}$ por medio de la aplicación recubridora $p \times p$.
+
+$(c)$ El subgrupo de $\mathbb{Z} \times \mathbb{Z}$ generado por $(m, 0)$ y $(0, n)$, siendo $m$ y $n$ enteros positivos (es decir, $m\mathbb{Z} \times n\mathbb{Z}$). Este último se corresponde con el espacio recubridor $S^1 \times S^1$ por medio de la aplicación recubridora $p'_m \times p'_n$.
+
+Como última reflexión, acabamos de ver que los espacios recubridores de $T$ pueden ser: $\mathbb{R}^2$, $\mathbb{R} \times S^1$ o $S^1 \times S^1$. Como en el  Ejemplo \ref{ejemplo 4.5}, el grupo $\pi_1(T,b_0) \cong {\mathbb{Z} \times \mathbb{Z}}$, es abeliano luego no hay subgrupos conjugados que no sean iguales. Por ejemplo, los subgrupos $n\mathbb{Z} \times m\mathbb{Z}$ y $m\mathbb{Z} \times n\mathbb{Z}$, son diferentes y no son conjugados y, por tanto, los recubridores ${p_n'}\times {p_m'}$ y ${p_m'}\times {p_n'}$ no son equivalentes.
+\end{example}
+
+\section{El espacio recubridor universal}
+
+Ahora daremos comienzo a la segunda parte del capítulo donde veremos la noción de recubridor universal, que será el único recubridor de un espacio topológico que es simplemente conexo. 
+\begin{definition}
+    Si $p \colon E \to B$ es una aplicación recubridora con $p(e_0)=b_0$ y $E$ es simplemente conexo, entonces E se denomina $\textbf{espacio recubridor universal}$ de $B$.
+    \end{definition}
+
+    
+    Al ser $\pi_1(E,e_0)$ trivial, se corresponde con el subgrupo trivial de $\pi_1(B,b_0)$ mediante la correspondencia dada por $p_{\ast}$. Además, el teorema \ref{th 4.4} implica que cualesquiera dos espacios recubridores universales de $B$ son equivalentes, aunque no sabemos todavía que todo espacio tenga un espacio recubridor universal. Ahora probaremos un lema preliminar y posterioremnte veremos un teorema que explica la razón de por qué se denomina recubridor universal: $E$ recubre cualquier otro espacio recubridor de $B$.
+
+    \begin{lemma}\label{80.1}
+        Sea $p \colon E \to B$ una aplicación recubridora con $B$ conexo por caminos y localmente conexo por caminos, mientras que $E$ no se requiere conexo por caminos. Si $E_0$ es una componente conexa por caminos de $E$, entonces la restricción \linebreak $p_0 \colon E_0 \to B$ es una aplicación recubridora.
+    \end{lemma}
+    \begin{proof}
+    Sobreyectividad: como $E$ es localmente homeomorfo a $B$, entonces $E$ es localmente conexo por caminos. Por tanto, $E_0$ es abierto de $E$ y $p(E_0)$ es abierto en $B$ por ser $p$ contínua. Probamos que $p(E_0)$ es cerrado en $B$, y así $p(E_0)=B$. Sea $x$ un punto de $B$ perteneciente a la clausura de $p(E_0)$. Sea $U$ un entorno conexo por caminos de $x$ que está regularmente recubierto por $p$. Como $U$ contiene un punto de $p(E_0)$, alguna rebanada $V_\alpha \in p^{-1}(U)$ debe cortar con $E_0$. Como $V_\alpha$ es homeomorfa a $U$, es conexa por caminos; por tanto, debe estar contenida en $E_0$. Entonces $p(V_\alpha)=U$ está contenido en $p(E_0)$, y en particular, $x \in p(E_0)$.
+
+    $p_0$ es una aplicación recubridora: dado $x\in B$, escojamos un entorno $U$ de $x$ como antes. Si $V_\alpha$ es una rebanada de $p^{-1}(U)$, entonces $V_\alpha$ es conexo por caminos; si corta a $E_0$, está en $E_0$. Por tanto, $p^{-1}(U)$ es igual a la unión de aquellas rebanadas $V_\alpha$ de $p^{-1}(U)$ que cortan a $E_0$; cada una de ellas es abierta en $E_0$ y aplicada homeomórficamente por $p_0$ en $U$. Así $U$ está regularmente recubierto por $p_0$.
+    \end{proof}
+
+
+
+\begin{theorem}\label{teorema pqr}
+    Dadas $p \colon E \to B$ y $r \colon Y \to B$ dos aplicaciones recubridoras con $E$ recubridor universal, entonces existe una aplicación recubridora $q \colon E \to Y$ tal que $r \circ q = p$.   
+
+
+\begin{center}
+$
+\xymatrix{
+  E \ar[d]_{p} \ar[r]^{q} &Y \ar[dl]^{r}\\  B
+}
+$
+\end{center}
+
+\end{theorem}
+\begin{proof}
+    Dado $b_0 \in B$, escogeremos $e_0$ e $y_0$ tales que $p(e_0)=b_0$ y $r(y_0)=b_0$. Al ser $E$ recubridor universal, por definición $E$ es simplemente conexo. Esto a su vez implica que $\pi_1(E,e_0)$ es trivial, y por tanto, se corresponde con el subgrupo trivial de $\pi_1(B,b_0)$, y se cumple trivialmente la condición 
+    \[p_{*}(\pi_1(E,e_0)) \subset r_{*}(\pi_1(Y,y_0))\]
+    Ahora podemos aplicar el Lema \ref{prop 79.1} para encontrar así un levantamiento único de $p$, obteniendo así $q$. Por tanto, hemos construido una aplicación $q \colon E \to Y$ tal que $r \circ q = p$ y $q(e_0)=y_0$. 
+
+
+    Finalmente, para terminar de demostrar el teorema probaremos y aplicaremos el siguiente lema:
+
+    \begin{lemma}\label{lema pqr}
+    Sean $p$, $q$ y $r$ aplicaciones continuas como en el siguiente diagrama conmutativo:
+    \begin{center}
+        $
+        \xymatrix{
+          X \ar[d]_{p} \ar[r]^{q} &Y \ar[dl]^{r}\\  Z
+        }
+        $
+    \end{center}
+
+    Si $p$ y $r$ son aplicaciones recubridoras, también lo es $q$.
+    \end{lemma}
+    \begin{proof}
+        Por el convenio utilizado en este capítulo, $X$, $Y$ y $Z$ son conexos por caminos y localmente conexos por caminos. Además partiremos del supuesto de que $p$ y $r$ son aplicaciones recubridoras. 
+        
+        Primero veamos que $q$ es sobreyectiva. Sea $x_0 \in X$, $y_0=q(x_0)$ y $z_0=p(x_0)$, dado $y \in Y$ escogemos un camino $\widetilde{\alpha}$ en $Y$ de $y_0$ a $y$. Aplicando $r$ obtenemos un camino $\alpha = r \circ \widetilde{\alpha}$ en $Z$ que parte de $z_0$. Sea $\widetilde{\widetilde{\alpha}}$ un levantamiento de $\alpha$ a $X$ partiendo de $x_0$, entonces $q \circ \widetilde{\widetilde{\alpha}}$ es un levantamiento de $\alpha$ a $Y$ partiendo de $y_0$. Como los levantamientos de caminos son únicos, $\widetilde{\alpha}=q \circ \widetilde{\widetilde{\alpha}}$ y, por tanto, $q$ aplica el punto final de $\widetilde{\widetilde{\alpha}}$, el punto $x=p^{-1}(r(y))$, en el punto final de $\widetilde{\alpha}$, el punto $y$. Por tanto, $\widetilde{\widetilde{\alpha}}(1)=y$, y $q$ es sobreyectiva. 
+
+        \begin{figure}[H]
+  \centering
+  \includegraphics[width=0.7\textwidth]{Images/80.3 theorema.png}
+  \caption{Representación de las aplicaciones $p,q$ y $r$, y de los caminos $\widetilde{\alpha},\widetilde{\widetilde{\alpha}}$, y $\alpha$.}
+\end{figure}
+
+        Ahora, dado un punto cualquiera $y \in Y$, veamos que existe un entorno de $y$ que está regularmente recubierto por $q$. Al ser $p$ y $r$ aplicaciones recubridoras, podemos encontrar un entorno $U$ de $z$ conexo por caminos y que esté regularmente cubierto por ambas aplicaciones. Si $V$ es la rebanada de $r^{-1}(U)$ conteniendo al punto $y$, probaremos que $V$ está regularmente cubierta por $q$.
+
+        Sea $\{U_\alpha\}$ la colección de rebanadas de $p^{-1}(U)$, como cada $U_\alpha$ es conexo, $q$ continua aplica cada $U_\alpha$ en una de las rebanadas de $r^{-1}(U)$. Por tanto, $q^{-1}(V)$ es la unión de las rebanadas $\{U_\alpha\}$ que se aplican por $q$ en $V$. Nos queda comprobar que $q$ aplica homeomórficamente esas rebanadas $\{U_\alpha\}$ sobre $V$, lo cual es sencillo de ver puesto que si restringimos las aplicaciones $p$, $q$ y $r$ a cada $U_{\alpha}$:
+
+        \begin{center}
+$
+\xymatrix{
+  U_\alpha \ar[d]_{p_0} \ar[r]^{q_0} &V \ar[dl]^{r_0}\\  U
+}
+$
+\end{center}
+
+        se obtiene que la restricción $q_0$ es un homeomorfismo puesto que $p_0$ y $r_0$ son homeomorfismos y $q_0={r_0}^{-1} \circ p_0$. 
+        
+
+        
+    \end{proof}
+    
+    Para finalizar la demostración del teorema \ref{teorema pqr}, aplicamos el lema \ref{lema pqr} que acabamos de probar obteniendo que $q$ es una aplicación recubridora.
+    
+\end{proof}
+
+\section{Existencia de espacios recubridores}
+    Hasta ahora hemos visto que a cada aplicación recubridora $p \colon E \to B$ le corresponde una clase de conjugación de subgrupos de $\pi_1(B,b_0)$. En esta nueva sección estudiaremos el sentido opuesto, es decir, veremos si por cada clase de conjugación de subgrupos de $\pi_1(B,b_0)$ existe un recubridor de $B$ correspondiente a dicha clase.
+
+    Primero introduciremos la noción de un espacio semilocalmente simplemente conexo y, a través del lema \ref{lema 80.4} y del teorema \ref{teorema 82.1} estableceremos en el corolario \ref{corolario 82.2} la condición necesaria y suficiente para la existencia de un recubridor universal.
+
+\subsection{Semilocalmente simplemente conexo}
+
+A continuación se expone la definición de un espacio simplemente conexo:
+
+\begin{definition}
+    Se dice que un espacio $B$ es \textbf{semilocalmente simplemente conexo} si para cada $b \in B$, existe un entorno $U$ de $b$ tal que el homomorfismo
+    \[i_* \colon \pi_1(U,b) \to \pi_1(B,b)\]
+    inducido por la inclusión es trivial.
+\end{definition}
+\subsection{Condición necesaria y suficiente para la existencia de un recubridor universal}
+
+Comenzaremos probando un lema y un teorema para concluir la condición como corolario.
+
+\begin{lemma}\label{lema 80.4}
+    Si $E$ es un espacio simplemente conexo y $p \colon E \to B$ una aplicación recubridora con $p(e_0)=b_0$, entonces existe un entorno $U$ de $b_0$ tal que la inclusión $i \colon U \to B$ induce el homomorfismo trivial
+    \[i_* \colon \pi_1(U,b_0) \to \pi_1(B,b_0)\]
+\end{lemma}
+    \begin{proof}
+            Para probar este lema veremos que dado un lazo en $\pi_1(U,b_0)$, entonces al incluirlo en todo $\pi_1(B,b_0)$ será homótopo al lazo constante.
+
+            Sea $U$ un entorno de $b_0$ regularmente recubierto por $p$ y tal que $U_\alpha$ es la rebanada de $p^{-1}(U)$ que contiene a $e_0$. Sea $\gamma$ un lazo en $U$ basado en $b_0$. Como la restricción de $p$ a $U_\alpha$ es un homeomorfismo, el lazo $\gamma$ se puede levantar a un lazo $\widetilde{\gamma}$ en $U_\alpha$ basado en $e_0$. Al ser $E$ simplemente conexo, existe una homotopía de caminos $\widetilde{F}$ en $E$ entre $\widetilde{\gamma}$ y un lazo constante. Entonces, como $p$ es contínua, $F=p \circ \widetilde{F}$ es una homotopía de caminos en $B$ entre $\gamma$ y un lazo constante.
+    \end{proof}
+
+\begin{theorem} \label{teorema 82.1}
+    Dado $B$ un espacio conexo por caminos, localmente conexo por caminos y semilocalmente simplemente conexo. Entonces, dado $b_0 \in B$ y un subgrupo $H$ de $\pi_1(B,b_0)$, existen una aplicación recubridora $p \colon E \to B$ y un punto $e_0 \in p^{-1}(b_0)$ tales que 
+    \[
+        p_*(\pi_1(E,e_0))=H.
+   \]
+\end{theorem}
+
+    \begin{proof}
+    Para demostrar este teorema seguiremos los siguientes pasos: $(1)$ construir el espacio $E$, $(2)$ definir una topología sobre $E$ y la aplicación $p$, $(3)$ demostrar que $p$ es una aplicación recubridora.
+    
+    $(1)$ Empezaremos por construir $E$. Para ello partiremos del conjunto de todos los caminos en $B$ que parten de $b_0$, al que llamaremos $\mathcal{P}$.
+    Definamos ahora una relación de equivalencia en $\mathcal{P}$ donde $\alpha \sim \beta$, si $\alpha$ y 
+    $\beta$ acaban en el mismo punto y 
+    $[\alpha * \bar{\beta}]\in H$. 
+    
+    $Reflexividad:$ $\alpha \sim \alpha$ ya que terminan en el mismo punto y $[\alpha * \bar{\alpha}]$ es el elemento neutro de $H$. 
+    
+    $Simetria:$ si $\alpha \sim \beta$ entonces $\alpha$ y $\beta$ terminan en el mismo punto y además \linebreak $[\beta * \bar{\alpha}] \in H$ ya que $[\beta * \bar{\alpha}]=[\overline{\alpha * \bar{\beta}}]$, lluego $\beta\sim \alpha$. 
+    
+    $Transitividad:$ si $\alpha \sim \beta$ y $\beta \sim \gamma$ entonces $\alpha$ y $\gamma$ acaban en el mismo punto y $[\alpha * \bar{\beta}]*[\beta * \bar{\gamma}]=[\alpha * \bar{\gamma}] \in H$. 
+    
+    La clase del camino $\alpha$ se indicará por $\alpha^{\#}$ y definimos $E$ como la colección de las clases de equivalencia $\alpha^{\#}$. Observemos dos hechos:
+    
+    $(a)$ Si $[\alpha]=[\beta]$, entonces $\alpha^{\#}=\beta^{\#}$, ya que entonces $[\alpha * \bar{\beta}]$ es el neutro, que pertenece a $H$. 
+
+    $(b)$ Si $\alpha^{\#}=\beta^{\#}$, entonces $(\alpha * \delta)^{\#}=(\beta * \delta)^{\#}$, para cualquier camino $\delta$ en $B$ partiendo de $\alpha(1)$. Esto se debe a que $\alpha * \delta$ y $\beta * \delta$ acaban en el mismo punto, y 
+        \[[(\alpha * \delta)*\overline{(\beta * \delta)}]=[(\alpha * \delta)*(\bar{\delta}*\bar{\beta})]=[\alpha * \bar{\beta}].\]
+        
+    $(2)$ A continuación definiremos $p \colon  E \to B$ por:
+    \[
+        p(\alpha^{\#})=\alpha(1)
+ \]
+    que es sobreyectiva ya que para cada punto $b\in B$ existe un camino que va de $b_0$ a $b$ por ser $B$ conexo por caminos. De esta forma tenemos un camino $\alpha$ que parte de $b_0$ y, por tanto, $\alpha \in E$ y se tiene que $p(\alpha^{\#})=\alpha(1)$.
+
+    Ahora dotaremos a $E$ de una topología de tal forma que $p$ sea una aplicación recubridora. Sean $\alpha$ un elemento cualquiera de $\mathcal{P}$ y $U$ un entorno conexo por caminos de $\alpha(1)$. Se define 
+    \begin{center}
+        $B(U,\alpha)=\{(\alpha * \delta)^{\#} $ | $\delta $ es un camino en $U$ partiendo de $\alpha(1)\}$
+    \end{center}
+
+    Es claro que $\alpha^{\#}$  es un elemento de $B(U,\alpha)$, ya que $\alpha^{\#}=(\alpha*e_{\alpha(1)})^{\#}$, que pertenece a $B(U,\alpha)$ por definición. 
+    
+    A continuación demostraremos que los conjuntos $B(U,\alpha)$ forman una base para alguna topología sobre $E$. Para ello primero probaremos que si $\beta^{\#} \in B(U,\alpha)$, se tiene que $\alpha^{\#} \in B(U,\beta)$ y $B(U,\alpha)=B(U,\beta)$. Si $\beta^{\#} \in B(U,\alpha)$, entonces por definición $\beta^{\#}=(\alpha * \delta)^{\#}$ para algún camino $\delta$ en $U$ que parte de $\alpha(1)$, luego $\delta(1)=\beta(1)$. Entonces
+
+    \begin{center}
+        $(\beta * \bar{\delta})^{\#}=((\alpha * \delta) * \bar{\delta})^{\#}$ por $(b)$
+        
+        $=\alpha^{\#}$ por $(a)$
+    \end{center}
+
+    por lo que $\alpha^{\#} \in B(U,\beta)$. Ahora veremos que $B(U,\beta) \subset B(U,\alpha)$. Si el elemento general de $B(U,\beta)$ es de la forma $(\beta * \gamma)$ siendo $\gamma$ un camino en $U$ que parte de $\beta(1)$, entonces:
+    \[(\beta * \gamma)^{\#}=((\alpha * \delta)*\gamma)^{\#}=(\alpha * (\delta*\gamma))^{\#}\]
+
+    ya que por $(b)$, como $\beta^{\#}=(\alpha * \delta)^{\#}$, entonces \[(\beta * \gamma)^{\#}=((\alpha * \delta)*\gamma)^{\#}\] para cualquier camino $\gamma$ en $B$ partiendo de $(\alpha * \delta)(1)=\beta(1)$.
+    
+    que pertenece a $B(U,\alpha)$ por definición. Por simetría se obtiene \linebreak que $B(U,\alpha) \subset B(U,\beta)$. 
+
+    Ahora veremos que los conjuntos $B(U,\alpha)$ forman una base para alguna topología sobre $E$. Para ello veremos que dado $\beta^{\#} \in B(U_1,\alpha_1) \cap B(U_2,\alpha_2)$, podemos encontrar otro elemento $B(V,\beta)$ de la base tal que $\beta^{\#} \in B(V,\beta)\subset B(U_1,\alpha_1) \cap B(U_2,\alpha_2)$. Sólo necesitamos escoger un entorno conexo por caminos $V$ de $\beta(1)$ contenido en $U_1 \cap U_2$. Y por lo tanto:
+    \[B(V,\beta)\subset B(U_1,\beta) \cap B(U_2,\beta)= B(U_1,\alpha_1) \cap B(U_2,\alpha_2)
+    \]
+
+    obteniéndose la última igualdad del resultado que acabábamos de probar.
+
+
+    $(3)$ Ahora veremos que la aplicación $p \colon  E \to B$ que hemos definido anteriormente por:
+    \[
+        p(\alpha^{\#})=\alpha(1)\]
+    es abierta y continua. Para probar lo primero veremos que la imagen de un abierto básico $B(U,\alpha)$ es un abierto de $B$, en concreto, la imagen por $p$ de $B(U,\alpha)$ será $U$. Esto se debe a que $\forall x \in U$, como $U$ es un entorno conexo por caminos, se puede elegir un camino $\delta$ en $U$ que vaya de $\alpha(1)$ hasta $x$; entonces $(\alpha * \delta)^{\#}$ está en $B(U,\alpha)$ y $p((\alpha * \delta)^{\#})=x$.
+
+    Ahora, dado un elemento $\alpha^{\#}$ de $E$ y $V$ un entorno de $p(\alpha^{\#})$. Por ser $V$ un entorno de $B$ (espacio conexo por caminos, localmente conexo por
+caminos y semilocalmente simplemente conexo), se puede encontrar un entorno conexo por caminos $U$ del punto $p(\alpha^{\#})=\alpha(1)$ dentro de $V$. Entoces es claro que $B(U,\alpha)$ es un entorno de $\alpha^{\#}$ cuya imagen es $U$ y está contenida en $V$. Con esto probamos que $p$ es continua.
+
+
+    También debemos probar que para todo $b \in B$ existe un entorno que está regularmente recubierto por $p$. Como $B$ es semilocalmente simplemente conexo, dado un punto $b_1 \in B$, se puede tomar un entorno conexo por caminos $U$ de $b_1$ que satisface que el homomorfismo $\pi_1(U,b_1) \to \pi_1(B,b_1)$ inducido por la inclusión es trivial.
+
+    En primer lugar probaremos que $p^{-1}(U)=\cup_{\alpha} B(U,\alpha)$, cuando $\alpha$ recorre todos los caminos en $B$ de $b_0$ a $b_1$. Como hemos visto antes, $p(B(U,\alpha))=U$, y por ello $B(U,\alpha) \subset p^{-1}(U)$, para todo $\alpha$. Ahora probaremos el otro contenido; si \linebreak $\beta^{\#} \in p^{-1}(U)$, entonces por definición $\beta(1) \in U$. Escogemos un camino $\delta$ desde el punto $b_1$ hasta el punto final $\beta(1)$ de $\beta$, y sea $\alpha$ el camino $\beta * \bar{\delta}$ de $b_0$ a $b_1$. Entonces $[\alpha]=[\beta * \bar{\delta}]$ y por lo tanto $[\beta]=[\alpha * \delta]$ y $\beta^{\#}=(\alpha * \delta)^{\#}$ que pertenece a $B(U,\alpha)$. Así $p^{-1}(U) \subset \cup_{\alpha} B(U,\alpha)$ y $p^{-1}(U) = \cup_{\alpha} B(U,\alpha)$.
+
+    En segundo lugar, los distintos conjuntos $B(U,\alpha)$ son disjuntos ya que como se ha visto anteriormente al probar que $B(U,\alpha)$ formaban una base, si \linebreak $\beta^{\#} \in B(U,\alpha_1) \cap B(U,\alpha_2)$, entonces $B(U,\alpha_1)=B(U,\beta)=B(U,\alpha_2)$.
+
+    En tercer lugar probaremos que $p$ define una aplicación biyectiva entre $B(U,\alpha)$ y $U$. Ya hemos visto que $p(B(U, \alpha)) = U$, luego se tiene la sobreyectividad. Veamos que es inyectiva: suponemos que $p((\alpha*\delta_1)^{\#})=p((\alpha*\delta_2)^{\#})$ con $\delta_1$ y $\delta_2$ caminos en $U$, y demostremos que $(\alpha*\delta_1)^{\#}=(\alpha*\delta_2)^{\#}$. Como $\delta_1(1)=\delta_2(1)$ y el homomorfismo $\pi_1(U,b_1) \to \pi_1(B,b_1)$ inducido por la inclusión es trivial, $\delta_1 * \bar{\delta_2}$ es homotópico al lazo constante, y por ello $[\alpha * \bar{\alpha}]=[\delta_1 * \bar{\delta_2}]$ y $[\alpha * \delta_1]=[\alpha * \delta_2]$, de manera que $(\alpha*\delta_1)^{\#}=(\alpha*\delta_2)^{\#}$.
+
+    Como en este capítulo hemos utilizado el convenio de que tanto $B$ como $E$ sean conexos por caminos queda probar dicha propiedad para $E$ para concluir que $p$ es una aplicación recubridora. Esto lo demostraremos viendo que dados dos puntos cualesquiera en $E$, digamos $e_0$ y $\alpha^{\#}$, se puede encontrar un camino entre ambos. Este camino será el levantamiento a $E$ del camino $\alpha$ en $B$ que va de $p(e_0)=b_0$ hasta $\alpha(1)$, punto final de todos los elementos de $\alpha^{\#}$, siendo $e_0$ la clase de equivalencia del camino constante en $b_0$.
+
+    Dado un camino $\alpha$ empezando en tal $b_0$, calculamos su levantamiento y veamos que termina en $\alpha^{\#}$. Para empezar, dado $c\in [0,1]$, sea $\alpha_c \colon [0,1] \to B$ el camino definido por la ecuación:\begin{center}
+        $\alpha_c(t)=\alpha(tc)$, para $0 \leq t \leq 1$.
+    \end{center}
+
+    Observemos que $\alpha_0$ es el camino constante y $\alpha_1$ es el propio camino $\alpha$. Definimos ahora el levantamiento que buscamos $\widetilde{\alpha} \colon [0,1] \to E$:
+    \[\widetilde{\alpha}(c)=(\alpha_c)^{\#}\]
+
+    y probemos que $\widetilde{\alpha}$ es continua para ver que es un camino en $E$. Este será un levantamiento de $\alpha$ ya que $p(\widetilde{\alpha}(c))=\alpha_c(1)=\alpha(c)$; y además $\widetilde{\alpha}$ comienza en \linebreak $(\alpha_0)^{\#}=e_0$ y termina en $(\alpha_1)^{\#}=\alpha^{\#}$.
+
+    Para estudiar la continuidad, introducimos la siguiente notación. Dados\linebreak  $0 \leq c < d \leq 1$, sea $\delta_{c,d}$ el camino que es igual a la aplicación lineal positiva de $[0,1]$ sobre $[c,d]$ compuesta con $\alpha$. Es claro que los caminos $\alpha_d$ y $\alpha_c * \delta_{c,d}$ son homotópicos ya que uno es la reparametrización del otro.
+
+    Verificaremos ahora la continuidad en un punto $c \in [0,1]$. Alrededor del punto $\widetilde{\alpha}(c)$ podemos encontrar un entorno básico de $E$ que será de la forma $B(U,\alpha_c)$ para algún entorno conexo por caminos $U$ de $\alpha(c)$. Escojamos $\epsilon > 0$ tal que para $|c-t|<\epsilon$, el punto $\alpha(t)$ esté en $U$. Para probar la continuidad  de $\widetilde{\alpha}$ en $c$ veremos que si $d \in [0,1]$ satisfaciendo $|c-d|<\epsilon$, entonces $\widetilde{\alpha}(d) \in W$.
+
+    Para el caso en que $d>c$, sea $\delta_{c,d}$, como $[\alpha_d]=[\alpha_c*\delta]$, se tiene que:
+    \[
+        \widetilde{\alpha}(d)=(\alpha_d)^{\#}=(\alpha_c*\delta)^{\#}.\]
+
+    Como $\delta \in U$, entonces $\widetilde{\alpha}(d) \in B(U,\alpha_c)$ como queríamos probar. Si $d < c$, escogemos $\delta=\delta_{d,c}$ y se prueba de forma análoga.
+
+    Finalmente, sean $H=p_*(\pi_1(E,e_0))$, un lazo $\alpha$ en $B$ basado en $b_0$ y $\widetilde{\alpha}$ su levantamiento a $E$ partiendo de $e_0$. El teorema \ref{teorema 54.6} afirma que $[\alpha] \in H$ si, y sólo si, $\widetilde{\alpha}$ es un lazo en $E$. Ahora bien, el punto final de $\widetilde{\alpha}$ es $\alpha^{\#}$, y $\alpha^{\#}=e_0$ si, y sólo si, $\alpha$ es equivalente al lazo constante en $b_0$, es decir, si y sólo si, $[\alpha * e_{b_0}] \in H$ que ocurre cuando $[\alpha] \in H$.
+     
+    \end{proof}
+
+    Una vez probados el lema \ref{lema 80.4} y el teorema \ref{teorema 82.1} llegamos al siguiente corolario:
+
+\begin{corollary} \label{corolario 82.2}
+    Un espacio topológico tiene espacio recubridor universal si, y sólo si es conexo por caminos, localmente conexo por caminos y semilocalmente simplemente conexo.
+\end{corollary}
+
+\begin{proof}
+    Sea $B$ un espacio conexo por caminos, localmente conexo por caminos y semilocalmente simplemente conexo y sea $b_0$ un punto de $B$. Entonces, por el teorema \ref{teorema 82.1}, tomando como subgrupo $H$ de $\pi_1(B,b_0)$ al subgrupo trivial, se tiene que existen una aplicación recubridora $p \colon E \to B$ y un punto $e_0\in p^{-1}(b_0)$ tales que $p_*(\pi_1(E,e_0))=H$ es el subgrupo trivial. Como el homomorfismo inducido $p_*$ es inyectivo por el Teorema \ref{teorema 54.6}, esto implica que  $\pi_1(E,e_0)$ deberá ser el grupo trivial. De esta forma concluimos que $E$ es simplemente conexo y, por tanto, espacio recubridor universal de $B$.
+
+ Recíprocamente, si $B$ es un espacio que tiene a $E$ como espacio recubridor universal y $p \colon E \to B$ un recubridor, veamos que $B$ es conexo por caminos, localmente conexo por caminos y semilocalmente simplemente conexo. Por el convenio de este capítulo, al ser $p$ una aplicación recubridora tal que $p \colon E \to B$, $B$ debe ser conexo por caminos y localmente conexo por caminos. Veamos ahora que es semilocalmente conexo. Como $p$ es sobreyectiva por ser aplicación recubridora, para cada $b \in B$ podemos encontrar un $e \in E$ tal que $p(e)=b$, y aplicando el lema \ref{lema 80.4}, se tiene que $\forall b \in B$ existe un entorno $U$ de $b$ tal que el homomorfismo
+    \[i_* \colon \pi_1(U,b) \to \pi_1(B,b)\]
+    inducido por la inclusión es trivial.
+\end{proof}
+
+\subsection{Ejemplos}
+
+\begin{example}
+Vamos a calcular los recubridores universales de $S^1$ y del toro. En primer lugar, en el ejemplo \ref{thm:recubridor_S1} vimos que una aplicación recubridora de $S^1$ era 
+\[
+    p(x)=(\cos(2\pi x),\sin(2\pi x)),\]
+siendo $\mathbb{R}$ el recubridor universal ya que es simplemente conexo. Por otra parte, para $S^1 \times S^1$ vimos en el ejemplo \ref{ejemplo 3.7} que $p \times p$ era una aplicación recubridora, siendo ahora $\mathbb{R} \times \mathbb{R}=\mathbb{R}^2$ el espacio recubridor universal por la misma razón.
+\end{example}
+
+\begin{example}
+Por otro lado, hay algunos espacios topológicos que no tienen espacio recubridor universal. Sea
+    $C_n=\{(x,y)\in\mathbb{R}^2 | (x-\frac{1}{n})^2+y^2=\frac{1}{n^2}\}$
+el círculo de radio $\frac{1}{n}$ centrado en $(\frac{1}{n},0)$. Definimos el espacio $E=\bigcup_{n \geq 1} C_n$ con la topología de subespacio de $\mathbb{R}^2$.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.35\textwidth]{Images/earring 2.JPG}
+  \caption{Representación del espacio topológico $E=\bigcup_{n \geq 1} C_n$.}
+\end{figure}
+
+Este espacio no es semilocalmente simplemente conexo ya que, para cualquier entorno $U$
+del punto $x_0=(0,0)$, existe un $N\geq 1$ tal que $C_n \subset U$ $\forall {n \geq N}$. De esta forma, al incluir todas esas curvas $C_n$ del entorno $U$ en  $E$ mediante la inclusión, estos lazos no son homtópicos al constante. Esto se puede ver mediante la retracción $q_n \colon E \to C_n$ que colapsa el resto de círculos a $x_0$.
+    
+\end{example}
+
+
+\section{Transformaciones recubridoras}
+
+Ahora, dada una aplicación recubridora $p \colon E \to B$, consideraremos el conjunto de todas las equivalencias $h$ de aplicaciones recubridoras (ver Definición \ref{equivalencia}), que llamaremos \textbf{transformaciones recubridoras}. Al ser un conjunto en el que los elementos son homeomorfismos $h \colon E \to E$, se tiene que las composición de transformaciones recubridoras es una transformación recubridora, siendo esta una propiedad asociativa. Además, la identidad actúa como elemento neutro y existe elemento inverso para cada equivalencia $h$ que será $h^{-1}$. Por tanto, este conjunto forma un grupo, el \textbf{grupo de transformaciones recubridoras} y se escribirá $\mathcal{C}(E,p,B)$.
+
+En esta última sección del capítulo, supondremos que $p \colon E \to B$ es una aplicación recubridora con $p(e_0)=b_0$ y $H_0=p_*(\pi_1(E,e_0))$. Veremos que si $N(H_0)$ es el mayor subgrupo de $\pi_1(B,b_0)$ del que $H_0$ es un grupo normal, entonces $\mathcal{C}(E,p,B)$ es isomorfo a $N(H_0)/H_0$, donde $N(H_0)$ es el normalizador de $H_0$ en $\pi_1(B,b_0)$ (Ver definición \ref{normalizador}). Así veremos que el grupo $\mathcal{C}(E,p,B)$ está completamente determinado por el grupo $\pi_1(B,b_0)$ y el subgrupo $H_0$.
+
+
+
+Mediante la correspondencia de levantamientos (definición \ref{def:corresp_lev}) y los resultados sobre la existencia de equivalencias (definición \ref{equivalencia}), se establece la correspondencia entre los grupos $N(H_0)/H_0$ y $\mathcal{C}(E,p,B)$:
+\begin{definition}
+    Dada una aplicación recubridora $p \colon E \to B$ con $p(e_0)=b_0$, y sea $H_0=p_*(\pi_1(E,e_0))$. A partir de la correspondencia biyectiva de levantamientos     del teorema \ref{teorema 54.6}:
+    \[\Phi \colon \pi_1(B,b_0)/H_0 \to p^{-1}(b_0)\]
+se define también una correspondencia
+    \[\Psi \colon \mathcal{C}(E,p,B) \to p^{-1}(b_0)\]
+    donde $\Psi(h)=h(e_0)$, siendo $h \colon E \to E$ una transformación recubridora. Además $\Psi$ es inyectiva ya que $h$ queda unívocamente determinada una vez se conoce su valor en $e_0$.
+\end{definition}
+
+Ahora veremos un lema que nos ayudará a probar el teorema que establece el isomorfismo entre $\mathcal{C}(E,p,B)$ y $N(H_0)/H_0$:
+
+\begin{lemma}
+    La imagen de $\Psi$ es igual a la imagen por $\Phi$ del subgrupo $N(H_0)/H_0$ de $\pi_1(B,b_0)/H_0$. 
+\end{lemma}
+\begin{proof}
+    Sea $\alpha$ un lazo en $B$ basado en $b_0$, y sea $\widetilde{\alpha}$ su levantamiento a $E$ partiendo de $e_0$. Pongamos $e_1=\widetilde{\alpha}(1)$. La correspondencia del levantamiento $\Phi \colon \pi_1(B,b_0) \to p^{-1}(e_0)$ se define por $\Phi([\alpha])=e_1$. Para probar este lema tendremos que demostrar que existe una transformación recubridora $h \colon E \to E$ con\linebreak  $h(e_0)=e_1$ si, y sólo si, $[\alpha] \in N(H_0)$.
+
+    El teorema \ref{th 79.2} dice que $h$ existe si, y sólo si, $H_0=H_1$, con $H_1=p_*(\pi_1(E,e_1))$. Y el lema \ref{lema 79.3} dice que $[\alpha]*H_1*[\alpha]^{-1}=H_0$. Por tanto, $h$ existe si, y sólo si, $[\alpha]*H_0*[\alpha]^{-1}=H_0$, que es lo mismo que decir $[\alpha] \in N(H_0)$.
+\end{proof}
+
+
+
+\subsection{El isomorfismo del grupo de transormaciones recubridoras }
+
+A continuación probaremos que existe un isomorfismo entre entre $\mathcal{C}(E,p,B)$ y $N(H_0)/H_0$:
+
+\begin{theorem}\label{isomorfismo}
+    La biyección 
+    \[\Phi^{-1} \circ \Psi \colon \mathcal{C}(E,p,B) \to N(H_0)/H_0\]
+    es un isomorfismo de grupos.
+\end{theorem}
+\begin{proof}
+    Puesto que $\Phi^{-1} \circ \Psi$ es una biyección, solo necesitamos probar que  tal aplicación es un homomorfismo.
+
+    Dadas dos transformaciones recubridoras $h,k \colon E \to E$, con $h(e_0)=e_1$ y $k(e_0)=e_2$. Entonces:
+    \begin{center}
+        $\Psi(h)=e_1$ y $\Psi(k)=e_2$
+    \end{center} Ahora, sean $\gamma$ y $\delta$ dos caminos en $E$ de $e_0$ a $e_1$ y $e_2$ respectivamente. Sean ahora $\alpha=p \circ \gamma$ y $\beta = p \circ \delta$, entonces $[\alpha]H_0$ y $[\beta]H_0$ son las clases de equivalencia de $\alpha$ y $\beta$ en $\pi_1(B,b_0)/H_0$. A estas clases pertenecerán los lazos de $\pi_1(B,b_0)$ tal que sus levantamientos a $E$ empiecen y acaben en el mismo punto que $\gamma$, para $[\alpha]H_0$, y que $\beta$, para $[\beta]H_0$. Entonces, por definición:
+    \begin{center}
+        $\Phi([\alpha]H_0)=e_1$ y $\Phi([\beta]H_0)=e_2$
+    \end{center}
+    Sea ahora $e_3=h(k(e_0))$, entonces $\Psi(h \circ k)=e_3$. Con todo esto tenemos que\linebreak  $(\phi^{-1} \circ \Psi)(h) * (\phi^{-1} \circ \Psi)(k)=[\alpha * \beta]H_0$. Por tanto, queda probar que \linebreak $(\phi^{-1} \circ \Psi)(h \circ k)=\phi^{-1}(e_3)=[\alpha * \beta]H_0$. Veamos que $\Phi([\alpha * \beta]H_0)=e_3$: 
+    
+    Como $\delta$ va de $e_0$ a $e_2$, entonces $h \circ \delta$ va de $h(e_0)=e_1$ a $h(e_2)=h(k(e_0))=e_3$. Entonces $\gamma * (h \circ \delta)$ está definido y es un camino que va de $e_0$ a $e_3$. Es un levantamiento de $\alpha * \beta$, ya que $p \circ \gamma = \alpha$ y $p \circ h \circ \delta=p\circ \delta=\beta$. Esto último se debe a que como $h$ es una tranformación recubridora tal que $h \colon  E \to E$, entonces por definición $p=p \circ h$. Por tanto $\Phi([\alpha * \beta]H_0)=e_3$.
+\end{proof}
+
+Con todo esto obtenemos los siguientes corolarios:
+
+\begin{corollary}\label{4.20}
+    El grupo $H_0=p_{\ast}(\pi_1(E,e_0))$ es un grupo normal de $\pi_1(B,b_0)$ si, y sólo si, para cada par de puntos $e_1$ y $e_2$ de $p^{-1}(b_0)$, existe una transformación recubridora $h \colon E \to E$ con $h(e_1)=e_2$. En tal caso, existe un isomorfismo de grupos \[\Phi^{-1} \circ \Psi \colon \mathcal{C}(E,p,B) \to \pi_1(B,b_0)/H_0.\]
+\end{corollary}
+
+\begin{proof}
+    $(\Longleftarrow)$ Dado $H_0=p_*(\pi_1(E,e_0))$ queremos ver que para cualquier lazo $[\beta]\in \pi_1(B,b_0)$ tal que $[\beta] \notin H_0$, se tiene que $[\beta]*[\alpha]*[\beta]^{-1}=[\alpha]$ para todo lazo $[\alpha]\in H_0$. Si $[\beta] \notin H_0$ es porque $[\beta]$ se levanta a un lazo $[\widetilde{\beta}] \in \pi_1(E,e_1)$, tal que $e_1 \neq e_0$ y $e_1 \in p^{-1}(b_0)$. Ahora, sabemos que existe una tranformación recubridora $h \colon E \to E$ tal que $h(e_1)=e_0$. Entonces, si $[\widetilde{\alpha}] \in \pi_1(E,e_0)$ es el lazo al que se levanta $[\alpha]\in \pi_1(B,b_0)$, aplicando $h$ a $[\beta]$ y $[\beta^{-1}]$ se tiene que
+    \[p_*([\widetilde{(h\circ \beta)}]*[\widetilde{\alpha}]*[\widetilde{(h\circ \beta^{-1})}])=[\beta]*[\alpha]*[\beta^{-1}]\in H_0\] ya que $[\widetilde{(h\circ \beta)}]), [\widetilde{(h\circ \beta^{-1})}] \in \pi_1(E,e_0)$. Como consecuancia de que $H_0$ sea grupo normal de $\pi_1(B,b_0)$, su normalizador es $N(H_0)=\pi_1(B,b_0)$ y se tiene que el isomorfismo probado en el teorema \ref{isomorfismo}: \[\Phi^{-1} \circ \Psi \colon \mathcal{C}(E,p,B) \to N(H_0)/H_0,\] es realmente \[\Phi^{-1} \circ \Psi \colon \mathcal{C}(E,p,B) \to \pi_1(B,b_0)/H_0.\]
+    
+
+    $(\Longrightarrow)$ Por otro lado, si $H_0$ es un subgrupo normal de $\pi_1(B,b_0)$, entonces \[\Phi^{-1} \circ \Psi \colon \mathcal{C}(E,p,B) \to \pi_1(B,b_0)/H_0\] es un isomorfismo. Al ser una biyección, para cada elemento $[\beta]\in \pi_1(B,b_0)$, tal que $[\beta]$ se levanta a un lazo $[\widetilde{\beta}] \in \pi_1(E,e_1)$ con $e_1 \neq e_0$, existe una transformación recubridora tal que $h'(e_0)=e_1$ con $h'=(\Phi^{-1} \circ \Psi)^{-1}([\beta])$. Definimos $h:=h'^{-1}$.  Por otra parte, esto también se cumple para lazos cuyos levantados están basados en otros puntos de $p^{-1}(b_0)$. Así, si tenemos dos transformaciones recubridoras $h$ y $g$ tales que $h(e_1)=e_0$ y $g(e_2)=e_0$, $(g^{-1} \circ h)(e_1)=e_2$ y $h \circ g^{-1}$ es una tranformación recubridora. 
+\end{proof}
+
+
+\begin{definition}
+Dada una aplicación recubridora $p \colon E\to B$ con $H_0=p_{\ast}(\pi(E, e_0))$, si $H_0$ es un grupo normal de $\pi_1(B,b_0)$, entonces $p$ se denomina \textbf{aplicación recubridora regular.}
+\end{definition}
+
+\begin{corollary} \label{4.22}
+    Sea $p \colon E \to B$ una aplicación recubridora donde $E$ es el recubridor universal de $B$, entonces el grupo de tranformaciones recubridoras es isomorfo a $\pi_1(B,b_0)$.
+
+\end{corollary}
+\begin{proof}
+    Como $E$ es recubridor universal de $B$, $p_*(\pi_1(E,e_0))=H_0$ es el subgrupo trivial de $\pi_1(B,b_0)$, que es normal, por tanto, \linebreak $N(H_0)/H_0=\pi_1(B,b_0)/\{0\}=\pi_1(B,b_0)$, y se tiene el isomorfismo \[\Phi^{-1} \circ \Psi \colon \mathcal{C}(E,p,B) \to N(H_0)/H_0 = \pi_1(B,b_0).\]
+\end{proof}
+    
+    
+
+\subsection{Ejemplos}
+
+Veamos ahora veamos un ejemplo de estos isomorfismos:
+
+\begin{example}\label{transformacionesCirculo}
+    Como el grupo fundamental del círculo es abeliano, entonces todos sus subgrupos son normales, y por tanto, cada recubridor $p$ de $S^1$ es regular. Además, si $p \colon \mathbb{R} \to S^1$ es la aplicación recubridora $p(x) = (\cos(2\pi x), \sin(2\pi x)$ del ejemplo \ref{thm:recubridor_S1}, las transformaciones recubridoras son los homeomorfismos $x \to {x+z}$. Esto se debe a que $p^{-1}(b_0)=\mathbb{Z}$ como conjunto y, por ello, las transformaciones recubridoras serán aquellas que lleven un entero $e_0$ en otro entero $e_1=e_0+z$ para un cierto $z\in \mathbb{Z}$. Además, el grupo de tales transformaciones es isomorfo a $(\mathbb{Z},+)$ ya que, por una parte, hay una correspondencia uno a uno entre las transformaciones recubridoras $h(x)=x+z$ y cada entero $z\in \mathbb{Z}$. Por otro lado, sean $e_1=e_0+z_1$ y $e_2=e_0+z_2$ de $p^{-1}(b_0)$ y $h_1(x)=x+z_1$ y $h_2(x)=x+z_2$. Entonces se cumple que $(h_1 \circ h_2)(e_0)=e_0+z_1+z_2$ y se tiene un homomorfismo biyectivo de grupos, luego un isomorfismo de grupos. 
+\end{example}
+
+\begin{example}\label{ejrecub}
+    Ahora veremos un ejemplo en el otro extremo, consideremos el espacio recubridor de la figura ocho de la Figura \ref{ej ocho}. En este caso, $p \colon E \to X$ envuelve cada arco $A_1$ y $A_2$ alrededor de $A$, los arcos $B_1$ y $B_2$ sobre $B$, y aplica $A_3$ y $B_3$ homeomórficamente en $A$ y $B$ respectivamente. 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{Images/ocho3.png}
+  \caption{Representación del recubridor del ocho}
+  \label{ej ocho}
+\end{figure}
+    Para calcular $H_0=p_*(\pi_1(E,e_0))$, primero calculamos $\pi_1(E,e_0)$.
+    Tomando como \linebreak $\alpha=A_1A_2, \beta=B_2B_1, \gamma=A_1B_3A_2$, y $\delta=B_2A_3B_1$, entonces \[\pi_1(E,e_0)=<\alpha, \beta, \gamma, \delta>.\]
+    Si ahora calculamos la imagen por el homomorfismo $p_*$ obtenemos los generadores de $H_0$:
+    \[p_*(\alpha)=A^2\]\[p_*(\beta)=B^2\]\[p_*(\gamma)=ABA\]\[p_*(\delta)=BAB\]
+    Sabiendo que $\pi_1(X,b_0)=<A,B>$, a $N(H_0)$ pertenecerán los lazos $\omega$ de $\pi_1(X,b_0)$ formados por combinaciones de $A$ y $B$, y tal que $\omega*H_0*\omega^{-1}\in H_0$. Utilizando software especializado\footnote{Se ha utilizando el paquete FGA de GAP, un sistema del Álgebra discreta computacional.}, llegamos a la conclusión de que\linebreak  $N(H_0)=<A^2,B^2,ABA,BAB>=H_0$. Por ende, el grupo $\mathcal{C}(E,p,X)$ es el subgrupo trivial de $\pi_1(X,b_0)$.
+    
+\end{example}
+
+\begin{example}
+    Ahora calcularemos las tranformaciones recubridoras para cada aplicación recubridora de $S^1$ y del toro $S^1\times S^2$
+    
+    Para $p \colon \mathbb{R} \to S^1$ con $p(x) = (\cos(2\pi x), \sin(2\pi x)$, como $\mathbb{R}$ es recubridor universal, entonces por el corolario \ref{4.22}, $\mathcal{C}(\mathbb{R},p,S^1) \cong \pi_1(S^1,b_0) \cong \mathbb{Z}$ como ya vimos en el ejemplo \ref{transformacionesCirculo}. En este definimos las transformaciones como $h(x)=x+z$ para $z \in \mathbb{Z}$.
+
+
+
+    Por otra parte, para $p'_n \colon S^1 \to S^1$ con $p'_n(z)=z^n$, sabemos que $\pi_1(S^1,b_0) \cong \mathbb{Z}$ y que todo subgrupo de $\mathbb{Z}$, $n \mathbb{Z}$, es normal por ser $\mathbb{Z}$ un grupo abeliano. Por tanto, por el corolario \ref{4.20} las transformaciones recubridoras serán:\linebreak  $\mathcal{C}(S^1,p'_n,S^1) \cong \mathbb{Z}/n \mathbb{Z}$. En este caso los homeomorfismos giran $S^1$ en $k*(360/n)$ grados para $p'_n$ y  $k=0,1,..,n-1$. Para $k=0$, la transformación recubridora se corresponderá con la clase $[0]\in \mathbb{Z}/n\mathbb{Z}$, y así sucesivamente hasta $k=n-1$ con $[n-1]\in \mathbb{Z}/n\mathbb{Z}$.
+
+    Como última reflexión, por el ejemplo \ref{4.7} sabemos que los recubridores del Toro pueden ser (a) $\mathbb{R}^2$, con recubridor $p \times p$; (b) $\mathbb{R} \times S^1$, con recubridor $p \times p'_n$; o \linebreak (c) $S^1 \times S^1$, con recubridor $p'_n \times p'_m$. Podemos concluir por tanto que los grupos de transformaciones de $S^1 \times S^1$ podrán ser: 
+    \begin{itemize}
+        \item[(a)] $\mathcal{C}(E,p,B) \cong \mathbb{Z} \times \mathbb{Z}$, donde las transformaciones serán $h_1 \times h_2$ con $h_1(x)=x+z_1$ y $h_2(y)=y+z_2$ para $z_1,z_2 \in \mathbb{Z}$.
+        \item[(b)] $\mathcal{C}(E,p,B) \cong \mathbb{Z} \times \mathbb{Z}/n\mathbb{Z}$, aquí las transformaciones serán las $h\times g$ tal que $h(x)=x+z$ para $z\in \mathbb{Z}$, y $g$ girará $S^1$ en $k*(360/n)$ grados para un $k=0,1,..,n-1$. 
+        \item[(c)] $\mathcal{C}(E,p,B) \cong \mathbb{Z}/n\mathbb{Z} \times \mathbb{Z}/m\mathbb{Z}$, donde en este último las transformaciones serán las $g_1\times g_2$ tal que $g_1$ gira $S^1$ en $k_1*(360/n)$ grados para un $k_1=0,1,..,n-1$, y $g_2$ hará lo mismo para $k_2*(360/m)$ grados y un $k_2=0,1,..,m-1$.
+            \end{itemize}
+\end{example}
+
+
